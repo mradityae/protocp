@@ -1,0 +1,40 @@
+Service Request Management
+Knowledge Management
+IT Asset Management
+Incident Management
+Problem Management
+Change Management
+
+
+ITSM = pembuat kebijakan (hasil koordinasi dari Subdit IT)
+
+belum dilaksanakannya IT - ISO 270001
+
+
+- Rumitnya koordinasi dengan beberapa bagian
+- tidak setuju dengan sosialisasi akan adanya kebijakan
+
+tantangan = harus bisa menjelaskan dengan pihak2 terkait tentang kebijakan
+
+jika tidak setuju, harus adanya diskusi ulang sampai semuanya setuju.
+pembuatan SOP ada di ITSM, semua diajak untuk membuat SOP.
+
+Kendala
+
+Perbedaan kebijakan dengan apa yang dilapangan
+
+tidak ada prosedur dilt 3 = ecard, satpam tidak ready, tidak ada prosedur keluar masuk orang
+
+beberapa kendala di dacen = 
+- tidak menggunakan tembok solid
+
+
+assign ke pengembang (LAYANAN)
+sebetulnya harus lewat (dpm) dulu 
+
+kondisi saat ini
+
+kendala birokrasi = tidak bisa sefleksible startup
+ketika merubah kebijakan itu tidak sefleksible startup
+
+- Beberapa SDM Masih belum difokuskan terhadap 1 bagian 
