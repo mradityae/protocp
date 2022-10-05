@@ -27,7 +27,7 @@
 </head>
 
 <?php 
-    require_once "Middleware/connection.php";
+    //require_once "Middleware/connection.php";
 ?>
 
 <body id="page-top">
@@ -311,7 +311,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <?php 
-                        require_once "Middleware/connection.php";
+                        //require_once "Middleware/connection.php";
                         
                     ?>
                 </div>
