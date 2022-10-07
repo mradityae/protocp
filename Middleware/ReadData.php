@@ -1,5 +1,26 @@
 <?php
 
+    function sync_data($url, $params) {
+            
+        $content = http_build_query($params, '', '&');
+
+        $header = array(
+            "Content-Type: application/x-www-form-urlencoded",
+            "Content-Length: ".strlen($content)
+        );
+        $options = array(
+            'http' => array(
+                'method' => 'POST',
+                'content' => $content,
+                'header' => implode("\r\n", $header)
+            )
+            
+        );
+        return file_get_contents($url, false, stream_context_create($options));
+    }
+
+    echo sync_data("http://localhost/protocp/Middleware/GetData.php?function=insert_data",array("date" => "2022-08"));
+
     // $jsonobj = '[{"Peter":35,"Ben":37,"Joe":43},{"Peter":33,"Ben":38,"Joe":41}]';
 
     // $obj = json_decode($jsonobj);
@@ -11,76 +32,84 @@
     // echo $obj->Joe;
 
 
-    require_once "connection.php";
-    try{
-        // $json = file_get_contents('data.json');
-        // $json_data = json_decode($json, true);
+    // require_once "connection.php";
+    // try{
+    //     // $json = file_get_contents('data.json');
+    //     // $json_data = json_decode($json, true);
 
-        // $i = 0;
-        // foreach($json_data as $jsonRecord){
-        //     echo $jsonRecord['ID_Data'];
-        //     $i += 1;
-        // }
-        $sql = "SELECT dataRecord FROM datarecords";
-        $statement = $mysqli-> prepare($sql);
-        $jsonArray = [];
+    //     // $i = 0;
+    //     // foreach($json_data as $jsonRecord){
+    //     //     echo $jsonRecord['ID_Data'];
+    //     //     $i += 1;
+    //     // }
 
-        $statement->execute(); // Execute the statement.
-        $result = $statement->get_result();
-        $i = 0;
-        while($row = $result -> fetch_assoc()){
-            $jsonArray[] = json_decode($row['dataRecord']);
-            $i += 1;
-        }
-        $newData = [];
-        foreach($jsonArray as $jsonData){
-            foreach($jsonData as $jsonDiti){
-                $newData[] = $jsonDiti;
-            }
-        }
+    //     $sql = "SELECT dataRecord FROM datarecords";
+    //     $statement = $mysqli-> prepare($sql);
+    //     $jsonArray = [];
+
+    //     $statement->execute(); // Execute the statement.
+    //     $result = $statement->get_result();
         
-        $key_ = array();
+    //     // $i = 0;
+    //     // while($row = $result -> fetch_assoc()){
+    //     //     $jsonArray[] = json_decode($row['dataRecord']);
+    //     //     $i += 1;
+    //     // }
+        
+    //     // $newData = [];
+    //     // foreach($jsonArray as $jsonData){
+    //     //     foreach($jsonData as $jsonDiti){
+    //     //         $newData[] = $jsonDiti;
+    //     //     }
+    //     // }
 
-        foreach($newData[0] as $key => $value){
-            array_push($key_, $key);
-        }
-        $l = 0;
-        foreach($newData as $newDatas){
-            foreach($key_ as $key){
-                echo $key." : ".$newDatas -> $key;
-                $l += 1;
-            }
-        }
-        echo $l;
+    //     // foreach($newData as $value){
+    //     //     echo $value -> ID_Data;
+    //     // }
+    //     // echo json_encode($newData);
+        
+    //     // $key_ = array();
 
-        // for ($i = 0; $i < count($jsonArray); $i++){
-        //     for ($j = 0; $j < count($jsonArray[$i]); $j++){
-        //         foreach($jsonArray[$i][$j] as $key => $value){
-        //             echo $key;
-        //             echo "\n";
-        //         }
-        //     }
-        //     echo count($jsonArray[$i]);
-        //     echo "\n";
-        // }
+    //     // foreach($newData[0] as $key => $value){
+    //     //     array_push($key_, $key);
+    //     // }
+    //     // $l = 0;
+    //     // foreach($newData as $newDatas){
+    //     //     foreach($key_ as $key){
+    //     //         echo $key." : ".$newDatas -> $key;
+    //     //         $l += 1;
+    //     //     }
+    //     // }
+    //     // echo $l;
 
-        //$json_Record = json_decode($json_data["dataRecord"], true);
+    //     // for ($i = 0; $i < count($jsonArray); $i++){
+    //     //     for ($j = 0; $j < count($jsonArray[$i]); $j++){
+    //     //         foreach($jsonArray[$i][$j] as $key => $value){
+    //     //             echo $key;
+    //     //             echo "\n";
+    //     //         }
+    //     //     }
+    //     //     echo count($jsonArray[$i]);
+    //     //     echo "\n";
+    //     // }
 
-        // $dataJson = json_encode(($result->fetch_assoc()));
+    //     //$json_Record = json_decode($json_data["dataRecord"], true);
+
+    //     // $dataJson = json_encode(($result->fetch_assoc()));
     
-        // $json_data = json_decode($dataJson, true);
-        // $json_Record = json_decode($json_data["dataRecord"], true);
+    //     // $json_data = json_decode($dataJson, true);
+    //     // $json_Record = json_decode($json_data["dataRecord"], true);
         
-        // $i = 0;
-        // foreach($json_Record as $jsonRecord){
-        //     print_r($jsonRecord["ID_Data"]);
-        //     echo "\n";
-        //     $i += 1;
-        // }
-        //print_r($json);
-        $mysqli -> close();    
-    }  
-    catch(Exception $e){
-        printf(" Error : ", $e);
-        $mysqli -> close();
-    }
+    //     // $i = 0;
+    //     // foreach($json_Record as $jsonRecord){
+    //     //     print_r($jsonRecord["ID_Data"]);
+    //     //     echo "\n";
+    //     //     $i += 1;
+    //     // }
+    //     //print_r($json);
+    //     $mysqli -> close();    
+    // }  
+    // catch(Exception $e){
+    //     printf(" Error : ", $e);
+    //     $mysqli -> close();
+    // }

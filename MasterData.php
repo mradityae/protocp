@@ -27,7 +27,7 @@
 </head>
 
 <?php 
-    //require_once "Middleware/connection.php";
+    require_once "Middleware/connection.php";
 ?>
 
 <body id="page-top">
@@ -311,9 +311,94 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <?php 
-                        //require_once "Middleware/connection.php";
-                        
+                        $response = file_get_contents('http://localhost/protocp/Middleware/GetData.php?function=get_data');
+                        $responseData = json_decode($response);
+                        $data = $responseData -> data;
                     ?>
+                                        <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Data List</h1>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">List of Data</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Judul</th>
+                                            <th>Kantor</th>
+                                            <th>NOPEN</th>
+                                            <th>KPRK</th>
+                                            <th>Regional</th>
+                                            <th>IP</th>
+                                            <th>Durasi Down</th>
+                                            <th>Tanggal Lapor</th>
+                                            <th>Tiket Internal</th>
+                                            <th>Tiket Mitra</th>
+                                            <th>Tanggal Open Tiket Mitra</th>
+                                            <th>Tanggal Selesai Tiket Mitra</th>
+                                            <th>Durasi Tiket Selesai</th>
+                                            <th>Jenis Gangguan</th>
+                                            <th>Keterangan</th>
+                                            <th>PIC</th>
+                                            <th>Status Ticket</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Judul</th>
+                                            <th>Kantor</th>
+                                            <th>NOPEN</th>
+                                            <th>KPRK</th>
+                                            <th>Regional</th>
+                                            <th>IP</th>
+                                            <th>Durasi Down</th>
+                                            <th>Tanggal Lapor</th>
+                                            <th>Tiket Internal</th>
+                                            <th>Tiket Mitra</th>
+                                            <th>Tanggal Open Tiket Mitra</th>
+                                            <th>Tanggal Selesai Tiket Mitra</th>
+                                            <th>Durasi Tiket Selesai</th>
+                                            <th>Jenis Gangguan</th>
+                                            <th>Keterangan</th>
+                                            <th>PIC</th>
+                                            <th>Status Ticket</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <?php 
+                                            foreach($data as $dataResponse){
+                                                ?>
+                                                <tr>
+                                                    <td><?php echo $dataResponse -> Title ?></td>
+                                                    <td><?php echo $dataResponse -> Kantor ?></td>
+                                                    <td><?php echo $dataResponse -> NOPEN ?></td>
+                                                    <td><?php echo $dataResponse -> KPRK ?></td>
+                                                    <td><?php echo $dataResponse -> Regional ?></td>
+                                                    <td><?php echo $dataResponse -> IP ?></td>
+                                                    <td><?php echo $dataResponse -> DurasiDown ?></td>
+                                                    <td><?php echo $dataResponse -> TanggalLapor ?></td>
+                                                    <td><?php echo $dataResponse -> TiketInternal ?></td>
+                                                    <td><?php echo $dataResponse -> TiketMitra ?></td>
+                                                    <td><?php echo $dataResponse -> TanggalOpenTiketMitra ?></td>
+                                                    <td><?php echo $dataResponse -> TanggalSelesaiTiketMitra ?></td>
+                                                    <td><?php echo $dataResponse -> DurasiTiketSelesai ?></td>
+                                                    <td><?php echo $dataResponse -> JenisGangguan ?></td>
+                                                    <td><?php echo $dataResponse -> Keterangan ?></td>
+                                                    <td><?php echo $dataResponse -> PIC ?></td>
+                                                    <td><?php echo $dataResponse -> Status ?></td>
+                                                </tr>
+                                                <?php
+                                            }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.container-fluid -->
 

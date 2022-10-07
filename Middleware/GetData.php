@@ -1,83 +1,139 @@
 <?php
 
-    function weekNumberOfMonth($date) {
-
-        $tgl=date_parse($date);
-        $tanggal = $tgl['day'];
-        $bulan = $tgl['month'];
-        $tahun = $tgl['year'];
-
-        $tanggalAwalBulan = mktime(0, 0, 0, $bulan, 1, $tahun);
-        $mingguAwalBulan = (int) date('W', $tanggalAwalBulan);
-
-        //tanggal sekarang
-
-        $tanggalYangDicari = mktime(0, 0, 0, $bulan, $tanggal, $tahun);
-        $mingguTanggalYangDicari = (int) date('W', $tanggalYangDicari);
-        $mingguKe = $mingguTanggalYangDicari - $mingguAwalBulan + 1;
-        return $mingguKe;
-
-    }
-    //sample code
-    // $tanggal='2022-08-08';
-    // $minggu_ke=weekNumberOfMonth($tanggal);
-    //echo ($tanggal." adalah minggu ke=".$minggu_ke);
-
-    function tgl_indo($tanggal){
-        $bulan = array (
-            1 =>   'Januari',
-            'Februari',
-            'Maret',
-            'April',
-            'Mei',
-            'Juni',
-            'Juli',
-            'Agustus',
-            'September',
-            'Oktober',
-            'November',
-            'Desember'
-        );
-        $pecahkan = explode('-', $tanggal);
-    
-        //return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
-        return $bulan[ (int)$pecahkan[1] ];
-    }
-    //sample code
-    // $time = '24/08/2022 18:12';
-    // $time = str_replace('/', '-', $time);
-    // $newformat = tgl_indo(date('Y-m-d',strtotime($time)));
-    // echo $newformat;
-
     require_once "connection.php";
+    require_once "function.php";
 
-    try{
-        $sql = "SELECT * FROM sourcedatagangguan ORDER BY ID_Data";
-        $result = $mysqli -> query($sql);
-        $i = 0;
-        while($row = $result -> fetch_array(MYSQLI_ASSOC)){
-            $time = str_replace('/', '-', $row["TanggalLapor"]);
-            $newtime = date('Y-m-d',strtotime($time));
-            $yeartime = date('Y', strtotime($time));
-            $data = "Data Penanganan Gangguan Jaringan Via Tiket BULAN ".tgl_indo($newtime)." MINGGU KE ".weekNumberOfMonth($newtime)." ".$yeartime;
-            // $json[] = $row;
-            $json[] = $row;
-            $json[$i]['Title'] = $data;
-            $i += 1;
-        }
-        $dataString = json_encode($json);
-        
-        $sql2 = "INSERT INTO datarecords (dataRecord) VALUES ('$dataString')";
+    if(function_exists($_GET['function'])) {
+        $_GET['function']();
+    } 
 
-        if ($mysqli->query($sql2) === true) {
-            echo "New record created successfully";
-        } else {
-            echo "Error: " . $sql2 . "<br>" . $mysqli->error;
+    function get_data(){
+        header('Content-Type: application/json');
+        global $mysqli;
+        try{
+            $sql = "SELECT dataRecord FROM datarecords";
+            $statement = $mysqli-> prepare($sql);
+            $jsonArray = [];
+    
+            $statement->execute(); // Execute the statement.
+            $result = $statement->get_result();
+            $i = 0;
+            while($row = $result -> fetch_assoc()){
+                $jsonArray[] = json_decode($row['dataRecord']);
+                $i += 1;
+            }
+            
+            $newData = [];
+            foreach($jsonArray as $jsonData){
+                foreach($jsonData as $jsonDiti){
+                    $newData[] = $jsonDiti;
+                }
+            }
+    
+            $response = array(
+                'status' => 200,
+                'message' => 'Success',
+                'data' => $newData
+            );
+            echo json_encode($response);
+        }     
+        catch(Exception $Error){
+            $response = array(
+                'status' => 500,
+                'message' => 'Error',
+                'data' => $Error
+            );
+            echo json_encode($response);
         }
-        //print_r($json);
-        $mysqli -> close();    
-    }  
-    catch(Exception $e){
-        printf(" Error : ", $e);
+        $mysqli -> close();
+    }
+
+    function insert_data(){
+        global $mysqli;
+        try{
+            $check = array('date' => '');
+            $check_match = count(array_intersect_key($_POST, $check));
+
+            if ($check_match == count($check)){
+                $datePost = date('m/Y',strtotime($_POST['date']));
+                $sql1 = "SELECT * FROM dataRecords where dataRecord";
+                $result1 = $mysqli -> query($sql1);
+                $sql = "";
+                if ($result1 -> num_rows == 0){
+                    if (getTanggalLapor() == false){
+                        $sql .= "SELECT * FROM sourcedatagangguan where TanggalLapor like '%$datePost%' ORDER BY ID_Data";
+                    }
+                    else {
+                        $sql .= getTanggalLapor();
+                    }
+                    echo $sql;
+                    $result = $mysqli -> query($sql);
+                    if ($result -> num_rows > 0){
+                        $i = 0;
+                        while($row = $result -> fetch_array(MYSQLI_ASSOC)){
+                            $time = str_replace('/', '-', $row["TanggalLapor"]);
+                            $newtime = date('Y-m-d',strtotime($time));
+                            $yeartime = date('Y', strtotime($time));
+                            $data = "Data Penanganan Gangguan Jaringan Via Tiket BULAN ".tgl_indo($newtime)." MINGGU KE ".weekNumberOfMonth($newtime)." ".$yeartime;
+                            $json[] = $row;
+                            $json[$i]['Title'] = $data;
+                            $i += 1;
+                        }
+                        $dataString = json_encode($json);
+                        
+                        $sqlTwo = "INSERT INTO datarecords (dataRecord) VALUES ('$dataString')";
+                        
+                        header('Content-Type: application/json');
+
+                        if ($mysqli->query($sqlTwo) === true) {
+                            $response = array(
+                                'status' => 200,
+                                'message' => 'New record created successfully'
+                            );
+                        } else {
+                            $response = array(
+                                'status' => 500,
+                                'message' => 'New record created failed'
+                            );
+                        }
+                        echo json_encode($response);
+                    }
+                    else {
+                        header('Content-Type: application/json');
+
+                        $response = array(
+                            'status' => 201,
+                            'message' => 'No Record from sourcedataGangguan'
+                        );
+                        echo json_encode($response);
+                    }
+                }
+                else {
+                    header('Content-Type: application/json');
+                    $response = array(
+                        'status' => 201,
+                        'message' => 'No Record from dataRecords'
+                    );
+                    echo json_encode($response);
+                }
+            } 
+            else {
+                header('Content-Type: application/json');
+                $response=array(
+                    'status' => 400,
+                    'message' =>'Wrong Parameter'
+                 );
+                 echo json_encode($response);
+            }
+        }  
+        catch(Exception $e){
+            header('Content-Type: application/json');
+            printf(" Error : ", $e);
+            $response = array(
+                'status' => 500,
+                'message' => $e
+            );
+            echo json_encode($response);
+        }
         $mysqli -> close();
     }
