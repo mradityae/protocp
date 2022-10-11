@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="Styling/jquery-ui.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
     <link href="cpbootstrap/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -318,8 +319,18 @@
                     <h1 class="h3 mb-2 text-gray-800">Request Data</h1>
                     <br>
                     <form>
+                        <div class="form-row">
+                            <div class="col">
+                              <label>Date From</label>
+                              <input type="text" class="form-control" id="datepicker">
+                            </div>
+                            <div class="col">
+                              <label>Date To</label>
+                              <input type="text" class="form-control" id="datepicker2">
+                            </div>
+                          </div>
                         <div class="form-group">
-                            <label for="formGroupExampleInput">Nama Dokumen</label>
+                            <label for="formGroupExampleInput">Document Name</label>
                             <select class="form-control">
                                 <option>Data Penanganan Gangguan Jaringan Via Tiket BULAN AGUSTUS MINGGU KEDUA 2022</option>
                                 <option>Data Penanganan Gangguan Jaringan Via Tiket BULAN AGUSTUS MINGGU KEEMPAT 2022</option>
@@ -396,7 +407,13 @@
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
-
+    <script src="Styling/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $("#datepicker").datepicker();
+            $("#datepicker2").datepicker();
+        });
+    </script>
 
 
 </body>
