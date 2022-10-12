@@ -333,7 +333,7 @@
                                             <td>Muhammad Raditya Ernawan</td>
                                             <td>Permisi pak , mohon untuk diapprove</td>
                                             <td>
-                                                <button type="button" onclick="alert('Already approved'); window.location.href='/protocp/userNSOC/DataAssign.html'" class="btn btn-success btn-sm"> Approve </button>
+                                                <button type="button" class="btn btn-success btn-sm approvedButton"> Approve </button>
                                             </td>
                                         </tr>
                                         <tr>
@@ -341,7 +341,7 @@
                                             <td>Arief Rahman</td>
                                             <td>Permisi, tolong approve terima kasih</td>
                                             <td>
-                                                <button type="button" onclick="alert('Already approved'); window.location.href='/protocp/userNSOC/DataAssign.html'" class="btn btn-success btn-sm"> Approve </button>
+                                                <button type="button" class="btn btn-success btn-sm approvedButton"> Approve </button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -413,8 +413,22 @@
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
+    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-
+    <script>
+        $(document).ready(function () {
+            $(".approvedButton").click(function(){
+                swal({
+                        title: "Request approved",
+                        icon: "success"
+                    })
+                    .then(() => {
+                        location.href = "./DataAssign.html"
+                    })
+                });
+        });
+    </script>
 
 </body>
 
