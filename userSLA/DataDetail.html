@@ -74,14 +74,14 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Data Management : </h6>
                         <a class="collapse-item" href="DataList.html">Data Lists</a>
-                        <!-- <a class="collapse-item" href="DataAssign.html">Request History</a>
-                        <!-- <a class="collapse-item" href="DataRemoved.html">Data Removed</a> --> -->
+                        <a class="collapse-item" href="DataAssign.html">Request History</a>
+
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-<!-- <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="DataAssignRequest.html"
                     aria-expanded="true" >
                     <i class="fas fa-fw fa-list"></i>
@@ -96,8 +96,7 @@
                     <span>Request Data</span>
                 </a>
             </li>
-
-
+            
             <!-- Nav Item - Charts -->
             <!-- <li class="nav-item">
                 <a class="nav-link" href="ListUser.html">
@@ -110,9 +109,6 @@
                     <i class="fas fa-fw fa-file-alt"></i>
                     <span>Master Data</span></a>
             </li> -->
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -283,7 +279,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">User SLA</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -306,9 +302,10 @@
                 <div class="container-fluid">
                     <!-- End of Topbar -->
                     <div class="align-items-center justify-content-between mb-4">
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="alert('Laporan berhasil di-download'); location.href='data/Laporan_Tiket_Gangguan.xlsx'"><i
-                            class="fas fa-download fa-sm text-white-50"></i> Export Excel </a>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="alert('Laporan berhasil di-download'); location.href='data/LAPORAN_TIKET.pptx'"><i
+
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm downloadExcel"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Export Excel </a>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm downloadPowerpoint"><i
                             class="fas fa-download fa-sm text-white-50"></i> Export Powerpoint </a>
                     </div>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -926,17 +923,7 @@
                                         </table>
                                     </div>
                                 </div>
-                                <!-- End of Topbar -->
-                                <!-- <div class="container-fluid">
-                                    <div class="align-items-center justify-content-between mb-4">
-                                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                            class="fas fa-download fa-sm text-white-50"></i> Export PDF </a>
-                                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                                class="fas fa-download fa-sm text-white-50"></i> Export Excel </a>
-                                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                            class="fas fa-download fa-sm text-white-50"></i> Export Powerpoint </a>
-                                    </div>
-                                </div> -->
+
                             </div>
                         </div>
                         <div class="tab-pane fade" id="minggukedua" role="tabpanel" aria-labelledby="minggukedua-tab">
@@ -1535,17 +1522,7 @@
                                         </table>
                                     </div>
                                 </div>
-                                <!-- End of Topbar -->
-                                <!-- <div class="container-fluid">
-                                    <div class="align-items-center justify-content-between mb-4">
-                                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                            class="fas fa-download fa-sm text-white-50"></i> Export PDF </a>
-                                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                                class="fas fa-download fa-sm text-white-50"></i> Export Excel </a>
-                                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                            class="fas fa-download fa-sm text-white-50"></i> Export Powerpoint </a>
-                                    </div>
-                                </div> -->
+
                             </div>
                         </div>
                         <div class="tab-pane fade" id="mingguketiga" role="tabpanel" aria-labelledby="mingguketiga-tab">
@@ -2142,17 +2119,7 @@
                                         </table>
                                     </div>
                                 </div>
-                                <!-- End of Topbar -->
-                                <!-- <div class="container-fluid">
-                                    <div class="align-items-center justify-content-between mb-4">
-                                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                            class="fas fa-download fa-sm text-white-50"></i> Export PDF </a>
-                                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                                class="fas fa-download fa-sm text-white-50"></i> Export Excel </a>
-                                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                            class="fas fa-download fa-sm text-white-50"></i> Export Powerpoint </a>
-                                    </div>
-                                </div> -->
+
                             </div>
                         </div>
                         <div class="tab-pane fade" id="minggukeempat" role="tabpanel" aria-labelledby="minggukeempat-tab">
@@ -2749,17 +2716,7 @@
                                         </table>
                                     </div>
                                 </div>
-                                <!-- End of Topbar -->
-                                <!-- <div class="container-fluid">
-                                    <div class="align-items-center justify-content-between mb-4">
-                                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                            class="fas fa-download fa-sm text-white-50"></i> Export PDF </a>
-                                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                                class="fas fa-download fa-sm text-white-50"></i> Export Excel </a>
-                                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                            class="fas fa-download fa-sm text-white-50"></i> Export Powerpoint </a>
-                                    </div>
-                                </div> -->
+
                             </div>
                         </div>
                         <div class="tab-pane fade" id="perbulan" role="tabpanel" aria-labelledby="perbulan-tab">
@@ -3356,17 +3313,7 @@
                                         </table>
                                     </div>
                                 </div>
-                                <!-- End of Topbar -->
-                                <!-- <div class="container-fluid">
-                                    <div class="align-items-center justify-content-between mb-4">
-                                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                            class="fas fa-download fa-sm text-white-50"></i> Export PDF </a>
-                                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                                class="fas fa-download fa-sm text-white-50"></i> Export Excel </a>
-                                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                            class="fas fa-download fa-sm text-white-50"></i> Export Powerpoint </a>
-                                    </div>
-                                </div> -->
+
                             </div>
                         </div>
                     </div>
@@ -3711,9 +3658,25 @@
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
     <script src="js/demo/chart-bar-demo.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         $(document).ready(function () {
             $('table.display').DataTable();
+
+            $(".downloadExcel").click(function(){
+                location.href='data/Laporan_Tiket_Gangguan.xlsx';
+                swal({
+                        title: "Data berhasil di-download",
+                        icon: "success"
+                    });
+            });
+            $(".downloadPowerpoint").click(function(){
+                location.href='data/LAPORAN_TIKET.pptx';
+                swal({
+                        title: "Data berhasil di-download",
+                        icon: "success"
+                    });
+            });
         });
     </script>
 
