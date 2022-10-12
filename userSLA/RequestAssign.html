@@ -326,7 +326,7 @@
                             <label for="formGroupExampleInput2">Message</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
-                        <button type="button" class="btn btn-success"> Submit </button>
+                        <button type="button" class="btn btn-success submitData"> Submit </button>
                     </form>
                 </div>
                 <!-- /.container-fluid -->
@@ -392,10 +392,21 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
     <script src="../Styling/jquery-ui.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         $( function() {
             $("#datepicker").datepicker();
             $("#datepicker2").datepicker();
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".submitData").click(function(){
+                swal({
+                        title: "Request data berhasil",
+                        icon: "success"
+                    });
+            });
         });
     </script>
 
