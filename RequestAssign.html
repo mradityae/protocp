@@ -40,7 +40,10 @@
                 <!-- <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div> -->
-                <div class="sidebar-brand-text mx-3">Data Collecting</div>
+                <div class="sidebar-brand-text mx-3">
+                    <img class="img-fluid" src="img/logosideting1.png"> 
+                    </img>
+                </div>
             </a>
 
             <!-- Divider -->
@@ -73,7 +76,7 @@
                         <h6 class="collapse-header">Data Management : </h6>
                         <a class="collapse-item" href="DataList.html">Data Lists</a>
                         <a class="collapse-item" href="DataAssign.html">Request History</a>
-                        <a class="collapse-item" href="DataRemoved.html">Data Removed</a>
+                        <!-- <a class="collapse-item" href="DataRemoved.html">Data Removed</a> -->
                     </div>
                 </div>
             </li>
@@ -83,18 +86,18 @@
                 <a class="nav-link collapsed" href="DataAssignRequest.html"
                     aria-expanded="true" >
                     <i class="fas fa-fw fa-list"></i>
-                    <span>Incomming Request</span>
+                    <span>Pending Request</span>
                 </a>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="RequestAssign.html"
                     aria-expanded="true" >
                     <i class="fas fa-fw fa-list"></i>
                     <span>Request Data</span>
                 </a>
-            </li>
+            </li> -->
 
 
             <!-- Nav Item - Charts -->
@@ -190,7 +193,7 @@
                                 <h6 class="dropdown-header">
                                     Notification
                                 </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="NotificationPage.html">
+                                <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="mr-3">
                                         <div class="icon-circle bg-primary">
                                             <i class="fas fa-file-alt text-white"></i>
@@ -201,7 +204,7 @@
                                         <span class="font-weight-bold">Data Penanganan Gangguan Via Ticket Bulan Oktober Minggu Kedua 2022 sudah diassign ke User</span>
                                     </div>
                                 </a>
-                                <a class="dropdown-item d-flex align-items-center" href="NotificationPage.html">
+                                <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="mr-3">
                                         <div class="icon-circle bg-success">
                                             <i class="fas fa-file-alt text-white"></i>
@@ -212,7 +215,7 @@
                                         Data Penanganan Gangguan Via Ticket Bulan Agustus Minggu Kedua 2022 sudah diassign ke User
                                     </div>
                                 </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="NotificationPage.html">Show All Alerts</a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
                             </div>
                         </li>
 
@@ -224,7 +227,7 @@
                                 <h6 class="dropdown-header">
                                     Message Center
                                 </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="NotificationPage.html">
+                                <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
                                         <img class="rounded-circle" src="img/undraw_profile_1.svg"
                                             alt="...">
@@ -236,7 +239,7 @@
                                         <div class="small text-gray-500">Emily Fowler · 58m</div>
                                     </div>
                                 </a>
-                                <a class="dropdown-item d-flex align-items-center" href="NotificationPage.html">
+                                <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
                                         <img class="rounded-circle" src="img/undraw_profile_2.svg"
                                             alt="...">
@@ -248,7 +251,7 @@
                                         <div class="small text-gray-500">Jae Chun · 1d</div>
                                     </div>
                                 </a>
-                                <a class="dropdown-item d-flex align-items-center" href="NotificationPage.html">
+                                <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
                                         <img class="rounded-circle" src="img/undraw_profile_3.svg"
                                             alt="...">
@@ -260,7 +263,7 @@
                                         <div class="small text-gray-500">Morgan Alvarez · 2d</div>
                                     </div>
                                 </a>
-                                <a class="dropdown-item d-flex align-items-center" href="NotificationPage.html">
+                                <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
                                         <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
                                             alt="...">
@@ -289,18 +292,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
+
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -329,7 +321,7 @@
                               <input type="text" class="form-control" id="datepicker2">
                             </div>
                           </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="formGroupExampleInput">Document Name</label>
                             <select class="form-control">
                                 <option>Data Penanganan Gangguan Jaringan Via Tiket BULAN AGUSTUS MINGGU KEDUA 2022</option>
@@ -337,7 +329,7 @@
                                 <option>Data Penanganan Gangguan Jaringan Via Tiket BULAN AGUSTUS MINGGU KETIGA 2022</option>
                                 <option>Data Penanganan Gangguan Jaringan Via Tiket BULAN AGUSTUS MINGGU PERTAMA 2022</option>
                             </select>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label for="formGroupExampleInput2">Message</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
@@ -354,7 +346,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Data Collecting 2022</span>
+                        <span>Copyright &copy; Sideting 2022</span>
                     </div>
                 </div>
             </footer>
