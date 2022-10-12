@@ -85,13 +85,13 @@
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-<li class="nav-item">
+<!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="DataAssignRequest.html"
                     aria-expanded="true" >
                     <i class="fas fa-fw fa-list"></i>
                     <span>Pending Request</span>
                 </a>
-            </li>
+            </li> -->
 
 
             <!-- Nav Item - Charts -->
