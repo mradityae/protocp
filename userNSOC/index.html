@@ -282,7 +282,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">User NSOC</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Bagian NSOC</span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -586,6 +586,210 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="container-fluid">
+                            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                <h6> <b> Laporan Availability Bulan Agustus 2022 </b> </h6>
+                            </div>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="lintasarta-tab" data-toggle="tab" href="#lintasarta" role="tab" aria-controls="home" aria-selected="true">lintasarta</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="astinet-tab" data-toggle="tab" href="#astinet" role="tab" aria-controls="profile" aria-selected="false">astinet</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="lintasarta" role="tabpanel" aria-labelledby="lintasarta-tab">
+                                <div class="row">
+                                    <!-- Area Chart -->
+                                    <div class="col-xl-8 col-lg-7">
+                                        <div class="card shadow mb-4">
+                                            <!-- Card Header - Dropdown -->
+                                            <div class="card-header py-3">
+                                                <h6 class="m-0 font-weight-bold text-primary">Rekap Laporan Availability Lintasarta</h6>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="tg-wu5t">No</th>
+                                                                <th class="tg-wu5t">Time Up</th>
+                                                                <th class="tg-wu5t">Jumlah Time Up</th>
+                                                                <th class="tg-wu5t">Percent Time Up</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <tr>
+                                                                <td class="tg-ib3r">1</td>
+                                                                <td class="tg-ks4p">Time Up 100 %</td>
+                                                                <td class="tg-ks4p">118</td>
+                                                                <td class="tg-ks4p">100%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="tg-rtra">2</td>
+                                                                <td class="tg-j0uk">Time Up &gt;=50% -&nbsp;&nbsp;&nbsp;&lt;=99.99%</td>
+                                                                <td class="tg-j0uk">0</td>
+                                                                <td class="tg-j0uk">0%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="tg-m93w">3</td>
+                                                                <td class="tg-nnvu">Time Up &lt;50%</td>
+                                                                <td class="tg-nnvu">0</td>
+                                                                <td class="tg-nnvu">0%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="tg-bobw" colspan="2">Total</td>
+                                                                <td class="tg-j6zm">118</td>
+                                                                <td class="tg-j6zm">100%</td>
+                                                            </tr>
+                                                            </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-5">
+                                        <div class="card shadow mb-4">
+                                            <!-- Card Header - Dropdown -->
+                                            <div
+                                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                                <h6 class="m-0 font-weight-bold text-primary">Persentase Up Time</h6>
+                                                <div class="dropdown no-arrow">
+                                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                                        aria-labelledby="dropdownMenuLink">
+                                                        <div class="dropdown-header">Dropdown Header:</div>
+                                                        <a class="dropdown-item" href="#">Action</a>
+                                                        <a class="dropdown-item" href="#">Another action</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#">Something else here</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Card Body -->
+                                            <div class="card-body">
+                                                <div class="chart-pie pt-4 pb-2">
+                                                    <canvas id="myPieChartLintasarta"></canvas>
+                                                </div>
+                                                <div class="mt-4 small">
+                                                    <span class="mr-2">
+                                                        <i class="fas fa-circle" style="color : #4e73df"></i> Time Up 100%
+                                                    </span>
+                                                    <br>
+                                                    <span class="mr-2">
+                                                        <i class="fas fa-circle" style="color : #1cc88a"></i> Time Up >= 50% - <= 99.99%
+                                                    </span>
+                                                    <br>
+                                                    <span class="mr-2">
+                                                        <i class="fas fa-circle" style="color : #FFA843"></i> Time Up < 50%
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="astinet" role="tabpanel" aria-labelledby="astinet-tab">
+                                <div class="row">
+                                    <!-- Area Chart -->
+                                    <div class="col-xl-8 col-lg-7">
+                                        <div class="card shadow mb-4">
+                                            <!-- Card Header - Dropdown -->
+                                            <div class="card-header py-3">
+                                                <h6 class="m-0 font-weight-bold text-primary">Rekap Laporan Availability Astinet</h6>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="tg-wu5t">No</th>
+                                                                <th class="tg-wu5t">Time Up</th>
+                                                                <th class="tg-wu5t">Jumlah Time Up</th>
+                                                                <th class="tg-wu5t">Percent Time Up</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <tr>
+                                                                <td class="tg-ib3r">1</td>
+                                                                <td class="tg-ks4p">Time Up 100 %</td>
+                                                                <td class="tg-ks4p">323</td>
+                                                                <td class="tg-ks4p">95%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="tg-rtra">2</td>
+                                                                <td class="tg-j0uk">Time Up &gt;=50% -&nbsp;&nbsp;&nbsp;&lt;=99.99%</td>
+                                                                <td class="tg-j0uk">0</td>
+                                                                <td class="tg-j0uk">0%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="tg-m93w">3</td>
+                                                                <td class="tg-nnvu">Time Up &lt;50%</td>
+                                                                <td class="tg-nnvu">16</td>
+                                                                <td class="tg-nnvu">5%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="tg-bobw" colspan="2">Total</td>
+                                                                <td class="tg-j6zm">339</td>
+                                                                <td class="tg-j6zm">100%</td>
+                                                            </tr>
+                                                            </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-5">
+                                        <div class="card shadow mb-4">
+                                            <!-- Card Header - Dropdown -->
+                                            <div
+                                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                                <h6 class="m-0 font-weight-bold text-primary">Persentase Up Time</h6>
+                                                <div class="dropdown no-arrow">
+                                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                                        aria-labelledby="dropdownMenuLink">
+                                                        <div class="dropdown-header">Dropdown Header:</div>
+                                                        <a class="dropdown-item" href="#">Action</a>
+                                                        <a class="dropdown-item" href="#">Another action</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#">Something else here</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Card Body -->
+                                            <div class="card-body">
+                                                <div class="chart-pie pt-4 pb-2">
+                                                    <canvas id="myPieChartAstinet"></canvas>
+                                                </div>
+                                                <div class="mt-4 small">
+                                                    <span class="mr-2">
+                                                        <i class="fas fa-circle" style="color : #4e73df"></i> Time Up 100%
+                                                    </span>
+                                                    <br>
+                                                    <span class="mr-2">
+                                                        <i class="fas fa-circle" style="color : #1cc88a"></i> Time Up >= 50% - <= 99.99%
+                                                    </span>
+                                                    <br>
+                                                    <span class="mr-2">
+                                                        <i class="fas fa-circle" style="color : #FFA843"></i> Time Up < 50%
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
                     </div>
                 </div>
                 <!-- /.container-fluid -->
@@ -651,6 +855,8 @@
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
     <script src="js/demo/chart-bar-demo.js"></script>
+    <script src="../js/demo/chart-pie-demo-astinet.js"></script>
+    <script src="../js/demo/chart-pie-demo-lintasarta.js"></script>
 
     
 
