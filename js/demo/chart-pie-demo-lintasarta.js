@@ -3,49 +3,29 @@ Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,Bli
 Chart.defaults.global.defaultFontColor = '#858796';
 
 // Pie Chart Example
-var ctx = document.getElementById("myPieChart");
-var myPieChart = new Chart(ctx, {
+var ctx = document.getElementById("myPieChartLintasarta");
+var myPieChartLintasarta = new Chart(ctx, {
   type: 'doughnut',
   data: {
     labels: [
-      "VPN", 
-      "Gangguan Dedicated Internet", 
-      "Gangguan Mainly Astinet Lite", 
-      "Gangguan Router Mikrotik", 
-      "Gangguan M2M", 
-      "Gangguan Mainlink VSAT Mangoesky dan Backup Mangoesky", 
-      "Gangguan Sinyal M2M", 
-      "Lain-lain"
+      "Time Up 100%", 
+      "Time Up >= 50% - <= 99.99%", 
+      "Time Up < 50%"
     ],
     datasets: [{
       data: [
-        0.05,
-        0.63,
-        2.09,
-        0.11,
-        0.1,
-        0.0,
-        0.79, 
-        0.00
+        100,
+        0,
+        0
       ],
       backgroundColor: [
         '#4e73df', 
         '#1cc88a', 
-        '#FFA843',
-        '#FFF723', 
-        '#1E9CB5', 
-        '#1E4BB5',
-        '#1cc88a', 
-        '#36b9cc'],
+        '#FFA843'],
       hoverBackgroundColor: [
         '#4e73df', 
         '#1cc88a', 
-        '#FFA843',
-        '#FFF723', 
-        '#1E9CB5', 
-        '#1E4BB5',
-        '#1cc88a', 
-        '#36b9cc'
+        '#FFA843'
       ],
       hoverBorderColor: "rgba(234, 236, 244, 1)",
     }],

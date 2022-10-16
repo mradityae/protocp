@@ -1,0 +1,2095 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Collecting Data</title>
+
+    <!-- Custom fonts for this template -->
+    <link href="cpbootstrap/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="cpbootstrap/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <!-- <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div> -->
+<div class="sidebar-brand-text mx-3">
+                    <img class="img-fluid" src="../img/logosideting1.png"> 
+                    </img>
+                </div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Menu
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Data Management</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Data Management : </h6>
+                        <a class="collapse-item" href="DataList.html">Data Lists</a>
+                        <a class="collapse-item" href="DataAssign.html">Request History</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <!-- <li class="nav-item">
+                <a class="nav-link collapsed" href="DataAssignRequest.html"
+                    aria-expanded="true" >
+                    <i class="fas fa-fw fa-list"></i>
+                    <span>Pending Request</span>
+                </a>
+            </li> -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="RequestAssign.html"
+                    aria-expanded="true" >
+                    <i class="fas fa-fw fa-list"></i>
+                    <span>Request Data</span>
+                </a>
+            </li>
+            
+            <!-- Nav Item - Charts -->
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="ListUser.html">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>User Management</span></a>
+            </li> -->
+
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="MasterData.php">
+                    <i class="fas fa-fw fa-file-alt"></i>
+                    <span>Master Data</span></a>
+            </li> -->
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <!-- <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form> -->
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter">2+</span>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Notification
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">September 30, 2022</div>
+                                        <span class="font-weight-bold">Data Penanganan Gangguan Via Ticket Bulan Oktober Minggu Kedua 2022 sudah diassign ke User</span>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-success">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">Agustus 31, 2022</div>
+                                        Data Penanganan Gangguan Via Ticket Bulan Agustus Minggu Kedua 2022 sudah diassign ke User
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Messages -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <!-- Dropdown - Messages -->
+                            <!-- <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="messagesDropdown">
+                                <h6 class="dropdown-header">
+                                    Message Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
+                                            alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div class="font-weight-bold">
+                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
+                                            problem I've been having.</div>
+                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
+                                            alt="...">
+                                        <div class="status-indicator"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">I have the photos that you ordered last month, how
+                                            would you like them sent to you?</div>
+                                        <div class="small text-gray-500">Jae Chun · 1d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
+                                            alt="...">
+                                        <div class="status-indicator bg-warning"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Last month's report looks great, I am very happy with
+                                            the progress so far, keep up the good work!</div>
+                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                                            alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
+                                            told me that people say this to all dogs, even if they aren't good...</div>
+                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                            </div> -->
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                                <img class="img-profile rounded-circle"
+                                    src="img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <!-- End of Topbar -->
+                    <div class="align-items-center justify-content-between mb-4">
+
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm downloadExcel"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Export Excel </a>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm downloadPowerpoint"><i
+                            class="fas fa-download fa-sm text-white-50"></i> Export Powerpoint </a>
+                    </div>
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">List of Data Bulan September 2022 Tanggal 05-09-2022 sampai 20-09-2022</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered display" id="" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                          <th class="tg-ukly">Kantor</th>
+                                          <th class="tg-ukly">NOPEN</th>
+                                          <th class="tg-ukly">KPRK</th>
+                                          <th class="tg-ukly">Regional</th>
+                                          <th class="tg-ukly">IP</th>
+                                          <th class="tg-ukly">Durasi Down</th>
+                                          <th class="tg-ukly">Tanggal Lapor</th>
+                                          <th class="tg-ukly">Tiket internal</th>
+                                          <th class="tg-ukly">Tiket Mitra</th>
+                                          <th class="tg-ukly">Tanggal Open&nbsp;&nbsp;&nbsp;Tiket Mitra</th>
+                                          <th class="tg-ukly">Tanggal Selesai&nbsp;&nbsp;&nbsp;Tiket Mitra</th>
+                                          <th class="tg-ukly">Durasi Tiket&nbsp;&nbsp;&nbsp;Selesai</th>
+                                          <th class="tg-ukly">Jenis Gangguan</th>
+                                          <th class="tg-ukly">Keterangan</th>
+                                          <th class="tg-ukly">PIC</th>
+                                          <th class="tg-ukly">STATUS TIKET</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td class="tg-cly1">20771-Namuukur-VPNTUNNEL-M2M</td>
+                                          <td class="tg-nrix">20771</td>
+                                          <td class="tg-nrix">20700</td>
+                                          <td class="tg-nrix">20004</td>
+                                          <td class="tg-nrix">10.90.3.250</td>
+                                          <td class="tg-7yig"> (for 194d 15h 57m 53s)</td>
+                                          <td class="tg-f4yw">05/09/2022 13:08</td>
+                                          <td class="tg-f4yw">368655</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-f4yw">05/09/2022 13:08</td>
+                                          <td class="tg-f4yw">05/09/2022 17:08</td>
+                                          <td class="tg-f4yw">4:00:00</td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Kartu m2m Rusak</td>
+                                          <td class="tg-cly1">yusuf sastra&nbsp;&nbsp;&nbsp;085359298523</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">11100-Jakartabarattamanfatahilah-ASTINET</td>
+                                          <td class="tg-nrix">11100</td>
+                                          <td class="tg-nrix">11000</td>
+                                          <td class="tg-nrix">10004</td>
+                                          <td class="tg-f4yw">36.95.20.231</td>
+                                          <td class="tg-f4yw">(for 0d 0h 31m 7s)</td>
+                                          <td class="tg-f4yw">05/09/2022 14:54</td>
+                                          <td class="tg-f4yw">848918</td>
+                                          <td class="tg-cly1">IN143272206</td>
+                                          <td class="tg-f4yw">05/09/2022 14:54</td>
+                                          <td class="tg-f4yw">06/09/2022 9:31</td>
+                                          <td class="tg-f4yw">18:37:00</td>
+                                          <td class="tg-7yig"> ASTINET </td>
+                                          <td class="tg-cly1">Hasil pengecekan tim&nbsp;&nbsp;&nbsp;DSO, indikasi GPON Los Saat ini masih dalam tim teknisi di sisi ODC.Reroute&nbsp;&nbsp;&nbsp;kabel distribusi Hasil cek GPON sudah working</td>
+                                          <td class="tg-cly1">Cp : 085813097622 A/N&nbsp;&nbsp;&nbsp;Dwi</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">77457-Mensalong-VPNTUNNEL-M2MROUTER</td>
+                                          <td class="tg-f4yw">77457</td>
+                                          <td class="tg-nrix">77100</td>
+                                          <td class="tg-nrix">90004</td>
+                                          <td class="tg-f4yw">10.90.16.127</td>
+                                          <td class="tg-f4yw">(for 0d 0h 8m 30s)</td>
+                                          <td class="tg-f4yw">06/09/2022 10:31</td>
+                                          <td class="tg-f4yw">903785</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-f4yw">06/09/2022 10:31</td>
+                                          <td class="tg-f4yw">06/09/2022 12:30</td>
+                                          <td class="tg-f4yw">1:59:00</td>
+                                          <td class="tg-7yig"> Router Mikrotik </td>
+                                          <td class="tg-cly1">indikasi gangguan di&nbsp;&nbsp;&nbsp;sinyal.</td>
+                                          <td class="tg-cly1">petugas : naslandi&nbsp;&nbsp;&nbsp;pic : 081253206208</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">60184A1-Surabayatambaklangon-VPNTUNNEL-M2M</td>
+                                          <td class="tg-f4yw">60184A1</td>
+                                          <td class="tg-nrix">60000</td>
+                                          <td class="tg-nrix">60004</td>
+                                          <td class="tg-f4yw">10.90.2.42</td>
+                                          <td class="tg-f4yw">(for 46d 18h 37m&nbsp;&nbsp;&nbsp;30s)</td>
+                                          <td class="tg-f4yw">09/09/2022 9:11</td>
+                                          <td class="tg-f4yw">838090</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-f4yw">09/09/2022 9:11</td>
+                                          <td class="tg-f4yw">09/09/2022 11:11</td>
+                                          <td class="tg-f4yw">2:00:00</td>
+                                          <td class="tg-7yig"> Lain - Lain </td>
+                                          <td class="tg-cly1">Firewall pc dilokasi&nbsp;&nbsp;&nbsp;menyala sehingga terpantau down cukup lama untuk kartu m2m normal</td>
+                                          <td class="tg-cly1">PIC 087852736134 Agus</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">15400-TANGERANGSELATAN-ASTINET</td>
+                                          <td class="tg-nrix">15400</td>
+                                          <td class="tg-8d8j">15400</td>
+                                          <td class="tg-8d8j">40004</td>
+                                          <td class="tg-nrix">36.94.242.205</td>
+                                          <td class="tg-nrix">(for 0d 0h 0m 45s)</td>
+                                          <td class="tg-f4yw">09/09/2022 9:29</td>
+                                          <td class="tg-f4yw">562458</td>
+                                          <td class="tg-cly1">IN143438283</td>
+                                          <td class="tg-f4yw">09/09/2022 9:29</td>
+                                          <td class="tg-f4yw">09/09/2022 11:24</td>
+                                          <td class="tg-f4yw">1:55:00</td>
+                                          <td class="tg-7yig"> ASTINET </td>
+                                          <td class="tg-cly1">perbaikan : Reconfig&nbsp;&nbsp;&nbsp;ONT</td>
+                                          <td class="tg-cly1">pic shandy&nbsp;&nbsp;&nbsp;085921680035 </td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">77457-Mensalong-VPNTUNNEL-M2MROUTER</td>
+                                          <td class="tg-nrix">77457</td>
+                                          <td class="tg-nrix">77100</td>
+                                          <td class="tg-f4yw">90004</td>
+                                          <td class="tg-nrix">10.90.16.127</td>
+                                          <td class="tg-f4yw">(for 0d 0h 53m 4s)</td>
+                                          <td class="tg-f4yw">09/09/2022 9:53</td>
+                                          <td class="tg-f4yw">143956</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-f4yw">09/09/2022 9:53</td>
+                                          <td class="tg-f4yw">09/09/2022 10:43</td>
+                                          <td class="tg-f4yw">0:50:00</td>
+                                          <td class="tg-f4yw">Sinyal M2M</td>
+                                          <td class="tg-cly1">terkendala sinyal&nbsp;&nbsp;&nbsp;Telkomsel, karena info dari PIC akses GSM di HP PIC pun mengalami kendala&nbsp;&nbsp;&nbsp;Untuk kelancaran, mungkin simcard M2M dapat digantikan dengan provider lain&nbsp;&nbsp;&nbsp;yang sekiranya mendukung sinyal stabil untuk area KPC.</td>
+                                          <td class="tg-cly1">petugas : naslandi&nbsp;&nbsp;&nbsp;pic : 081253206208</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">50151A-Semarangtugu-ASTINET</td>
+                                          <td class="tg-f4yw">50151A</td>
+                                          <td class="tg-nrix">50000</td>
+                                          <td class="tg-nrix">50004</td>
+                                          <td class="tg-f4yw">36.95.11.227</td>
+                                          <td class="tg-f4yw">(for 0d 0h 34m 21s)</td>
+                                          <td class="tg-f4yw">09/09/2022 16:36</td>
+                                          <td class="tg-f4yw">300919</td>
+                                          <td class="tg-cly1">IN143483203</td>
+                                          <td class="tg-f4yw">09/09/2022 16:36</td>
+                                          <td class="tg-f4yw">10/09/2022 9:52</td>
+                                          <td class="tg-f4yw">17:16:00</td>
+                                          <td class="tg-f4yw">ASTINET</td>
+                                          <td class="tg-cly1">perbaikan sambung&nbsp;&nbsp;&nbsp;ulang dropcore.</td>
+                                          <td class="tg-cly1">PIC Agus No Hp&nbsp;&nbsp;&nbsp;08156636949 Agus/081326441894  Edi&nbsp;&nbsp;&nbsp;Sarwanto 081542333347 </td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">33782D1-LEAirgegas-VPNTUNNEL-M2M</td>
+                                          <td class="tg-f4yw">33782D1</td>
+                                          <td class="tg-nrix">33100</td>
+                                          <td class="tg-f4yw">20004</td>
+                                          <td class="tg-f4yw">10.90.1.49</td>
+                                          <td class="tg-f4yw">(for 199d 12h 23m&nbsp;&nbsp;&nbsp;14s)</td>
+                                          <td class="tg-f4yw">10/09/2022 9:40</td>
+                                          <td class="tg-f4yw">461403</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-f4yw">10/09/2022 9:40</td>
+                                          <td class="tg-f4yw">10/09/2022 13:40</td>
+                                          <td class="tg-f4yw">4:00:00</td>
+                                          <td class="tg-f4yw">SimCard M2M</td>
+                                          <td class="tg-cly1">Simcard M2M Rusak</td>
+                                          <td class="tg-cly1">Nama PIC : Masitah No&nbsp;&nbsp;&nbsp;Hp : 089628142085</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">22388-Pintupohanmeranti-VPNTUNNEL-M2M</td>
+                                          <td class="tg-f4yw">22388</td>
+                                          <td class="tg-nrix">22300</td>
+                                          <td class="tg-nrix">20004</td>
+                                          <td class="tg-f4yw">10.90.4.5</td>
+                                          <td class="tg-7yig"> (for 199d 12h 59m 25s)</td>
+                                          <td class="tg-f4yw">10/09/2022 10:09</td>
+                                          <td class="tg-f4yw">459212</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-f4yw">10/09/2022 10:09</td>
+                                          <td class="tg-f4yw">10/09/2022 10:57</td>
+                                          <td class="tg-f4yw">0:48:00</td>
+                                          <td class="tg-7yig"> Lain - Lain </td>
+                                          <td class="tg-cly1">Firewall pc dilokasi&nbsp;&nbsp;&nbsp;menyala sehingga terpantau down cukup lama untuk kartu m2m normal</td>
+                                          <td class="tg-cly1">Nama : Baringin&nbsp;&nbsp;&nbsp;Sihombing Nomor HP Pic dilokasi : 085246226657</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">40291A-Bandungantapani-VPNTUNNEL-M2MROUTER</td>
+                                          <td class="tg-f4yw">40291A</td>
+                                          <td class="tg-nrix">40000</td>
+                                          <td class="tg-nrix">40004</td>
+                                          <td class="tg-f4yw">10.90.13.30</td>
+                                          <td class="tg-f4yw">(for 0d 21h 30m 7s)</td>
+                                          <td class="tg-nrix">10/09/2022 13:02</td>
+                                          <td class="tg-f4yw">672726</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">10/09/2022 13:02</td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-7yig"> Router Mikrotik </td>
+                                          <td class="tg-cly1">router mikrotik&nbsp;&nbsp;&nbsp;dilokasi bootloop.</td>
+                                          <td class="tg-cly1">pic:angga megaswara&nbsp;&nbsp;&nbsp;(082240691657</td>
+                                          <td class="tg-3m9j">OPEN</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">28800-DUMAI-ASTINET</td>
+                                          <td class="tg-f4yw">28800</td>
+                                          <td class="tg-nrix">28800</td>
+                                          <td class="tg-nrix">20004</td>
+                                          <td class="tg-f4yw">36.94.244.127</td>
+                                          <td class="tg-f4yw">(for 3d 3h 27m 45s)</td>
+                                          <td class="tg-f4yw">10/09/2022 13:18</td>
+                                          <td class="tg-f4yw">102509</td>
+                                          <td class="tg-cly1">IN143574237</td>
+                                          <td class="tg-f4yw">10/09/2022 13:18</td>
+                                          <td class="tg-f4yw">10/09/2022 14:49</td>
+                                          <td class="tg-f4yw">1:31:00</td>
+                                          <td class="tg-7yig"> ASTINET </td>
+                                          <td class="tg-0lax"> penyambungan kabel DC</td>
+                                          <td class="tg-cly1">pic : Muhammad Shaleh&nbsp;&nbsp;&nbsp;no Hp : 08117503123</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">74172-Sukamara-VPNTUNNEL-M2MROUTER</td>
+                                          <td class="tg-nrix">74172</td>
+                                          <td class="tg-nrix">74100</td>
+                                          <td class="tg-nrix">90004</td>
+                                          <td class="tg-nrix">10.90.16.70</td>
+                                          <td class="tg-nrix">(for 0d 0h 1m 51s)</td>
+                                          <td class="tg-f4yw">10/09/2022 13:59</td>
+                                          <td class="tg-f4yw">351799</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-f4yw">10/09/2022 13:59</td>
+                                          <td class="tg-nrix">10/09/2022 14:12</td>
+                                          <td class="tg-f4yw">0:13:00</td>
+                                          <td class="tg-7yig"> Router Mikrotik </td>
+                                          <td class="tg-cly1">Jaringan Sudah&nbsp;&nbsp;&nbsp;Kembali UP</td>
+                                          <td class="tg-cly1">Nama : Komarudin Amir&nbsp;&nbsp;&nbsp;NO HP :085249223330</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">40154B-Bandungsetiabudi-VPNTUNNEL-M2MROUTER</td>
+                                          <td class="tg-f4yw">40154B</td>
+                                          <td class="tg-nrix">40000</td>
+                                          <td class="tg-nrix">40004</td>
+                                          <td class="tg-f4yw">10.90.13.19</td>
+                                          <td class="tg-f4yw">(for 0d 1h 31m 2s)</td>
+                                          <td class="tg-f4yw">10/09/2022 14:03</td>
+                                          <td class="tg-f4yw">193835</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-f4yw">10/09/2022 14:03</td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-7yig"> Router Mikrotik </td>
+                                          <td class="tg-cly1">rusak sering bunyi</td>
+                                          <td class="tg-cly1">pic ading&nbsp;&nbsp;&nbsp;082130491215</td>
+                                          <td class="tg-3m9j">OPEN</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">42394-Cikotok-VPNTUNNEL-M2MROUTER</td>
+                                          <td class="tg-nrix">42394</td>
+                                          <td class="tg-nrix">42300</td>
+                                          <td class="tg-nrix">40004</td>
+                                          <td class="tg-nrix">10.90.13.94</td>
+                                          <td class="tg-f4yw">(for 0d 18h 31m 3s)</td>
+                                          <td class="tg-nrix">11/09/2022 9:37</td>
+                                          <td class="tg-f4yw">645931</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">11/09/2022 9:37</td>
+                                          <td class="tg-nrix"> </td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-nrix">Router Mikrotik</td>
+                                          <td class="tg-cly1">indikasi router&nbsp;&nbsp;&nbsp;bootloop.</td>
+                                          <td class="tg-cly1">PIC : 081218142701&nbsp;&nbsp;&nbsp;(Juandi)</td>
+                                          <td class="tg-3m9j">OPEN</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">90400-SPPMAKASSAR-ASTINET</td>
+                                          <td class="tg-nrix">90400</td>
+                                          <td class="tg-8d8j">90400</td>
+                                          <td class="tg-8d8j">90004</td>
+                                          <td class="tg-f4yw">36.94.236.171</td>
+                                          <td class="tg-f4yw">(for 0d 0h 7m 16s)</td>
+                                          <td class="tg-nrix">11/09/2022 10:04</td>
+                                          <td class="tg-f4yw">257117</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">11/09/2022 10:04</td>
+                                          <td class="tg-nrix">11/09/2022 10:30</td>
+                                          <td class="tg-f4yw">0:26:00</td>
+                                          <td class="tg-nrix">ASTINET</td>
+                                          <td class="tg-cly1">Kabel astinet dari&nbsp;&nbsp;&nbsp;arah modem ke mikrotik sengaja di cabut oleh pic</td>
+                                          <td class="tg-cly1">PIC Luthfi&nbsp;&nbsp;&nbsp;081242646152 </td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">60300-SURABAYASELATAN-LINTASARTA</td>
+                                          <td class="tg-nrix">60300</td>
+                                          <td class="tg-8d8j">60300</td>
+                                          <td class="tg-8d8j">60004</td>
+                                          <td class="tg-f4yw">123.231.153.18</td>
+                                          <td class="tg-nrix">(for 7d 21h 16m 4s)</td>
+                                          <td class="tg-nrix">11/09/2022 14:34</td>
+                                          <td class="tg-f4yw">266983</td>
+                                          <td class="tg-dcap"><a href="https://mail.posindonesia.co.id/callto:2022-000347538"><span style="text-decoration:none;color:black">2022-000347538</span></a></td>
+                                          <td class="tg-nrix">11/09/2022 14:34</td>
+                                          <td class="tg-nrix">19/09/2022 9:18</td>
+                                          <td class="tg-f4yw">186:44:00</td>
+                                          <td class="tg-7yig"> LINTASARTA </td>
+                                          <td class="tg-cly1">Jaringan Sudah&nbsp;&nbsp;&nbsp;Kembali UP</td>
+                                          <td class="tg-cly1">pic vindy vilyantoro&nbsp;&nbsp;&nbsp;= 085655032099 </td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">74172-Sukamara-VPNTUNNEL-M2MROUTER</td>
+                                          <td class="tg-f4yw">74172</td>
+                                          <td class="tg-nrix">74100</td>
+                                          <td class="tg-f4yw">90004</td>
+                                          <td class="tg-f4yw">10.90.16.70</td>
+                                          <td class="tg-nrix">(for 0d 0h 1m 32s)</td>
+                                          <td class="tg-nrix">12/09/2022 9:23</td>
+                                          <td class="tg-f4yw">880520</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">12/09/2022 9:23</td>
+                                          <td class="tg-nrix">12/09/2022 9:38</td>
+                                          <td class="tg-f4yw">0:15:00</td>
+                                          <td class="tg-7yig"> Router Mikrotik </td>
+                                          <td class="tg-cly1">Saat ini VPN Pos&nbsp;&nbsp;&nbsp;sudah mulai stabil kembali</td>
+                                          <td class="tg-cly1">NO HP :085249223330&nbsp;&nbsp;&nbsp;Nama :KOMARUDIN AMIR</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">57600-WONOGIRI-ASTINET</td>
+                                          <td class="tg-f4yw">57600</td>
+                                          <td class="tg-8d8j">57600</td>
+                                          <td class="tg-8d8j">50004</td>
+                                          <td class="tg-f4yw">36.94.237.149</td>
+                                          <td class="tg-nrix">(for 0d 5h 19m 17s)</td>
+                                          <td class="tg-nrix">12/09/2022 14:25</td>
+                                          <td class="tg-f4yw">787317</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">12/09/2022 14:25</td>
+                                          <td class="tg-nrix">12/09/2022 17:56</td>
+                                          <td class="tg-f4yw">3:31:00</td>
+                                          <td class="tg-7yig"> ASTINET </td>
+                                          <td class="tg-cly1">Hasil pengecekan link&nbsp;&nbsp;&nbsp;normal, ping ke router reply.tidak ada penggantian router, hanya lepas kabel&nbsp;&nbsp;&nbsp;dari Indihome ke arah hub/switch, dan dilakukan clear cache di PC, saat ini&nbsp;&nbsp;&nbsp;sudah bisa membuka aplikasi berbasis web dengan domain pci.</td>
+                                          <td class="tg-cly1">pic : Sapto&nbsp;&nbsp;&nbsp;08122648607</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">57600-WONOGIRI-LINTASARTA</td>
+                                          <td class="tg-f4yw">57600</td>
+                                          <td class="tg-8d8j">57600</td>
+                                          <td class="tg-8d8j">50004</td>
+                                          <td class="tg-f4yw">123.231.183.114</td>
+                                          <td class="tg-nrix">(for 0d 0h 14m 6s)</td>
+                                          <td class="tg-nrix">12/09/2022 15:24</td>
+                                          <td class="tg-f4yw">787317</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">12/09/2022 15:24</td>
+                                          <td class="tg-nrix">12/09/2022 17:55</td>
+                                          <td class="tg-f4yw">2:31:00</td>
+                                          <td class="tg-7yig"> LINTASARTA </td>
+                                          <td class="tg-cly1">link termonitoring&nbsp;&nbsp;&nbsp;normal</td>
+                                          <td class="tg-cly1">pic : Sapto&nbsp;&nbsp;&nbsp;08122648607</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">93700-BAUBAU-ASTINET</td>
+                                          <td class="tg-f4yw">93700</td>
+                                          <td class="tg-nrix">93700</td>
+                                          <td class="tg-nrix">90004</td>
+                                          <td class="tg-f4yw">36.94.253.171</td>
+                                          <td class="tg-f4yw">(for 0d 2h 26m 12s)</td>
+                                          <td class="tg-nrix">13/09/2022 9:26</td>
+                                          <td class="tg-f4yw">252508</td>
+                                          <td class="tg-cly1">IN143858970</td>
+                                          <td class="tg-nrix">13/09/2022 9:26</td>
+                                          <td class="tg-f4yw">13/09/2022 11:47</td>
+                                          <td class="tg-f4yw">2:21:00</td>
+                                          <td class="tg-7yig"> ASTINET </td>
+                                          <td class="tg-cly1">perbaikan penggantian&nbsp;&nbsp;&nbsp;dropcore 50m</td>
+                                          <td class="tg-cly1">Nama : Zamsuddin no&nbsp;&nbsp;&nbsp;hp : 081273574702</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">21151A-Pematangsiantarnomensen-VPNTUNNEL-M2MROUTER</td>
+                                          <td class="tg-nrix">21151A</td>
+                                          <td class="tg-nrix">21100</td>
+                                          <td class="tg-nrix">20004</td>
+                                          <td class="tg-f4yw">10.90.10.202</td>
+                                          <td class="tg-baqh"> (for 202d 13h 22m 23s)</td>
+                                          <td class="tg-nrix">13/09/2022 10:35</td>
+                                          <td class="tg-f4yw">340253</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">13/09/2022 10:35</td>
+                                          <td class="tg-nrix">13/09/2022 11:10</td>
+                                          <td class="tg-f4yw">0:35:00</td>
+                                          <td class="tg-7yig"> Router Mikrotik </td>
+                                          <td class="tg-cly1">info dari rekan team&nbsp;&nbsp;&nbsp;router, hasil koordinasi dengan PIC infonya link dilokasi normal</td>
+                                          <td class="tg-cly1">nama kkpc : satria&nbsp;&nbsp;&nbsp;bagus yudhistira no hp : 081261396854 no hp IT : 082163314829</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">74172-Sukamara-VPNTUNNEL-M2MROUTER</td>
+                                          <td class="tg-f4yw">74172</td>
+                                          <td class="tg-nrix">74100</td>
+                                          <td class="tg-f4yw">90004</td>
+                                          <td class="tg-f4yw">10.90.16.70</td>
+                                          <td class="tg-baqh"> (for 0d 0h 1m 0s)</td>
+                                          <td class="tg-nrix">13/09/2022 13:09</td>
+                                          <td class="tg-f4yw">363815</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">13/09/2022 13:09</td>
+                                          <td class="tg-nrix">23/09/2022 9:41</td>
+                                          <td class="tg-f4yw">236:32:00</td>
+                                          <td class="tg-7yig"> Sinyal M2M </td>
+                                          <td class="tg-cly1">Jaringan Sudah&nbsp;&nbsp;&nbsp;Kembali UP</td>
+                                          <td class="tg-cly1">NO HP :082157695290&nbsp;&nbsp;&nbsp;Nama : WISNU LESA</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">43282-Ciranjang-VPNTUNNEL-M2MROUTER</td>
+                                          <td class="tg-f4yw">43282</td>
+                                          <td class="tg-nrix">43200</td>
+                                          <td class="tg-nrix">40004</td>
+                                          <td class="tg-f4yw">10.90.13.120</td>
+                                          <td class="tg-nrix">(for 0d 0h 9m 23s)</td>
+                                          <td class="tg-nrix">13/09/2022 13:16</td>
+                                          <td class="tg-f4yw">566222</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">13/09/2022 13:16</td>
+                                          <td class="tg-f4yw">23/09/2022 9:42</td>
+                                          <td class="tg-f4yw">236:26:00</td>
+                                          <td class="tg-7yig"> Sinyal M2M </td>
+                                          <td class="tg-cly1">Jaringan Sudah&nbsp;&nbsp;&nbsp;Kembali UP</td>
+                                          <td class="tg-cly1">pic / NINA MARLIANA&nbsp;&nbsp;&nbsp;tlp 085793823088  </td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">28000-PEKANBARU-ASTINET</td>
+                                          <td class="tg-f4yw">28000</td>
+                                          <td class="tg-nrix">28000</td>
+                                          <td class="tg-f4yw">20004</td>
+                                          <td class="tg-f4yw">36.94.251.235</td>
+                                          <td class="tg-baqh"> (for 29d 2h 48m 9s)</td>
+                                          <td class="tg-nrix">13/09/2022 14:33</td>
+                                          <td class="tg-f4yw">261439</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">13/09/2022 14:33</td>
+                                          <td class="tg-nrix">13/09/2022 16:30</td>
+                                          <td class="tg-f4yw">1:57:00</td>
+                                          <td class="tg-7yig"> ASTINET </td>
+                                          <td class="tg-cly1">Jaringan Sudah&nbsp;&nbsp;&nbsp;Kembali UP</td>
+                                          <td class="tg-cly1">0812 7577 440</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">11610D1-LEPuriindah-VPNTUNNEL-M2M</td>
+                                          <td class="tg-f4yw">11610D1</td>
+                                          <td class="tg-nrix">11000</td>
+                                          <td class="tg-nrix">10004</td>
+                                          <td class="tg-f4yw">10.90.4.198</td>
+                                          <td class="tg-baqh"> (for 0d 0h 18m 31s)</td>
+                                          <td class="tg-nrix">16/09/2022 9:26</td>
+                                          <td class="tg-f4yw">301567</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 9:26</td>
+                                          <td class="tg-nrix"> </td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal M2M</td>
+                                          <td class="tg-cly1">Cp : 0838-7799-6900</td>
+                                          <td class="tg-3m9j">OPEN</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">22454-Onanganjang-VPNTUNNEL-M2M</td>
+                                          <td class="tg-f4yw">22454</td>
+                                          <td class="tg-nrix">22400</td>
+                                          <td class="tg-nrix">20004</td>
+                                          <td class="tg-f4yw">10.90.4.8</td>
+                                          <td class="tg-7yig"> (for 0d 0h 39m 4s)</td>
+                                          <td class="tg-nrix">16/09/2022 9:26</td>
+                                          <td class="tg-f4yw">642247</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 9:26</td>
+                                          <td class="tg-nrix">23/09/2022 16:48</td>
+                                          <td class="tg-f4yw">175:22:00</td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal&nbsp;&nbsp;&nbsp;M2M,sudah dilakukan refresh pada nomor m2m</td>
+                                          <td class="tg-cly1">pic : Alimanto Manalu&nbsp;&nbsp;&nbsp;Hp : 0813 6503 7448</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">51156-Bojongpekalongan-VPNTUNNEL-M2M</td>
+                                          <td class="tg-nrix">51156</td>
+                                          <td class="tg-nrix">51100</td>
+                                          <td class="tg-nrix">50004</td>
+                                          <td class="tg-nrix">10.90.17.42</td>
+                                          <td class="tg-nrix">(for 0d 0h 25m 30s)</td>
+                                          <td class="tg-nrix">16/09/2022 9:26</td>
+                                          <td class="tg-f4yw">906403</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 9:26</td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal M2M</td>
+                                          <td class="tg-cly1">BP. MUKAFIDZIN 0823&nbsp;&nbsp;&nbsp;31281892</td>
+                                          <td class="tg-3m9j">OPEN</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">54383-Puring-VPNTUNNEL-M2M</td>
+                                          <td class="tg-nrix">54383</td>
+                                          <td class="tg-nrix">54300</td>
+                                          <td class="tg-nrix">50004</td>
+                                          <td class="tg-nrix">10.90.5.233</td>
+                                          <td class="tg-nrix">(for 0d 0h 49m 8s)</td>
+                                          <td class="tg-nrix">16/09/2022 9:26</td>
+                                          <td class="tg-f4yw">900643</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 9:26</td>
+                                          <td class="tg-nrix"> </td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal M2M</td>
+                                          <td class="tg-cly1">PIC =Ibnu&nbsp;&nbsp;&nbsp;NOmor=081391737656</td>
+                                          <td class="tg-3m9j">OPEN</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">45586-Subangkuningan-VPNTUNNEL-M2M</td>
+                                          <td class="tg-f4yw">45586</td>
+                                          <td class="tg-nrix">45500</td>
+                                          <td class="tg-nrix">40004</td>
+                                          <td class="tg-f4yw">10.90.5.91</td>
+                                          <td class="tg-baqh"> (for 79d 20h 19m 5s)</td>
+                                          <td class="tg-nrix">16/09/2022 9:32</td>
+                                          <td class="tg-f4yw">825040</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 9:32</td>
+                                          <td class="tg-nrix">23/09/2022 16:43</td>
+                                          <td class="tg-f4yw">175:11:00</td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal&nbsp;&nbsp;&nbsp;M2M,sudah dilakukan refresh pada nomor m2m.</td>
+                                          <td class="tg-cly1">PIC : Trisna&nbsp;&nbsp;&nbsp;(082233446470)</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">45583-Ciwaru-VPNTUNNEL-M2M</td>
+                                          <td class="tg-f4yw">45583</td>
+                                          <td class="tg-nrix">45500</td>
+                                          <td class="tg-nrix">40004</td>
+                                          <td class="tg-f4yw">10.90.5.90</td>
+                                          <td class="tg-baqh"> (for 0d 0h 13m 55s)</td>
+                                          <td class="tg-nrix">16/09/2022 9:33</td>
+                                          <td class="tg-f4yw">872534</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 9:33</td>
+                                          <td class="tg-nrix">23/09/2022 16:50</td>
+                                          <td class="tg-f4yw">175:17:00</td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal&nbsp;&nbsp;&nbsp;M2M,sudah dilakukan refresh pada nomor m2m.</td>
+                                          <td class="tg-cly1">PIC : Heri Budi&nbsp;&nbsp;&nbsp;Permana (082128884453)</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">45566-Selajambe-VPNTUNNEL-M2M</td>
+                                          <td class="tg-f4yw">45566</td>
+                                          <td class="tg-nrix">45500</td>
+                                          <td class="tg-nrix">40004</td>
+                                          <td class="tg-f4yw">10.90.5.87</td>
+                                          <td class="tg-baqh"> (for 205d 12h 24m 44s)</td>
+                                          <td class="tg-nrix">16/09/2022 9:33</td>
+                                          <td class="tg-f4yw">610661</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 9:33</td>
+                                          <td class="tg-nrix">23/09/2022 16:50</td>
+                                          <td class="tg-f4yw">175:17:00</td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal&nbsp;&nbsp;&nbsp;M2M,sudah dilakukan refresh pada nomor m2m.</td>
+                                          <td class="tg-cly1">PIC : Allan Mardjan&nbsp;&nbsp;&nbsp;(081320362875)</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">52473-Jatinegarategal-VPNTUNNEL-M2M</td>
+                                          <td class="tg-f4yw">52473</td>
+                                          <td class="tg-nrix">52100</td>
+                                          <td class="tg-nrix">50004</td>
+                                          <td class="tg-nrix">10.90.5.142</td>
+                                          <td class="tg-baqh"> (for 0d 17h 5m 42s)</td>
+                                          <td class="tg-nrix">16/09/2022 9:33</td>
+                                          <td class="tg-f4yw">938721</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 9:33</td>
+                                          <td class="tg-nrix">26/09/2022 10:56</td>
+                                          <td class="tg-f4yw">241:23:00</td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal M2M</td>
+                                          <td class="tg-cly1">nama : yanuar wirawan&nbsp;&nbsp;&nbsp;no hp/wa : +62 878-3029-4999</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">30772-Makartijaya-VPNTUNNEL-M2M</td>
+                                          <td class="tg-f4yw">30772</td>
+                                          <td class="tg-nrix">30000</td>
+                                          <td class="tg-nrix">20004</td>
+                                          <td class="tg-f4yw">10.90.4.143</td>
+                                          <td class="tg-baqh"> (for 0d 1h 7m 50s)</td>
+                                          <td class="tg-nrix">16/09/2022 9:33</td>
+                                          <td class="tg-f4yw">561526</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 9:33</td>
+                                          <td class="tg-nrix">26/09/2022 10:58</td>
+                                          <td class="tg-f4yw">241:25:00</td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal M2M</td>
+                                          <td class="tg-cly1">PIC : Pak Yogi Hp :&nbsp;&nbsp;&nbsp;081368079623</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">75113A-Samarindailir-VPNTUNNEL-M2M</td>
+                                          <td class="tg-f4yw">75113A</td>
+                                          <td class="tg-f4yw">75113A</td>
+                                          <td class="tg-nrix">90004</td>
+                                          <td class="tg-f4yw">10.90.8.29</td>
+                                          <td class="tg-nrix">(for 0d 3h 50m 33s)</td>
+                                          <td class="tg-nrix">16/09/2022 9:43</td>
+                                          <td class="tg-f4yw">150126</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 9:43</td>
+                                          <td class="tg-nrix"> </td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal M2M</td>
+                                          <td class="tg-0lax"> juliatin 085229658026</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">67375-Tempursari-VPNTUNNEL-M2M</td>
+                                          <td class="tg-nrix">67375</td>
+                                          <td class="tg-nrix">67300</td>
+                                          <td class="tg-nrix">60004</td>
+                                          <td class="tg-nrix">10.90.7.102</td>
+                                          <td class="tg-nrix">(for 0d 0h 45m 3s)</td>
+                                          <td class="tg-nrix">16/09/2022 9:43</td>
+                                          <td class="tg-f4yw">678994</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 9:43</td>
+                                          <td class="tg-nrix"> </td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal M2M</td>
+                                          <td class="tg-cly1">anton winarno&nbsp;&nbsp;&nbsp;085234014076</td>
+                                          <td class="tg-3m9j">OPEN</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">73572-Bahaur-VPNTUNNEL-M2MROUTER</td>
+                                          <td class="tg-f4yw">73572</td>
+                                          <td class="tg-nrix">73000</td>
+                                          <td class="tg-nrix">90004</td>
+                                          <td class="tg-f4yw">10.90.16.56</td>
+                                          <td class="tg-nrix">(for 2d 0h 34m 46s)</td>
+                                          <td class="tg-nrix">16/09/2022 9:43</td>
+                                          <td class="tg-f4yw">707234</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 9:43</td>
+                                          <td class="tg-nrix">19/09/2022 18:06</td>
+                                          <td class="tg-f4yw">80:23:00</td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">sudah dilakukan&nbsp;&nbsp;&nbsp;refresh pada nomor m2m.</td>
+                                          <td class="tg-cly1">PIC : Jemmi&nbsp;&nbsp;&nbsp;Harusan/+62 812 21038971</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">69272-Jrengik-VPNTUNNEL-M2M</td>
+                                          <td class="tg-f4yw">69272</td>
+                                          <td class="tg-nrix">69100</td>
+                                          <td class="tg-nrix">60004</td>
+                                          <td class="tg-f4yw">10.90.7.150</td>
+                                          <td class="tg-baqh"> (for 0d 0h 51m 49s)</td>
+                                          <td class="tg-nrix">16/09/2022 9:43</td>
+                                          <td class="tg-f4yw">629489</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 9:43</td>
+                                          <td class="tg-nrix"> </td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal M2M</td>
+                                          <td class="tg-cly1">pic 087750412379 ats&nbsp;&nbsp;&nbsp;nama retno</td>
+                                          <td class="tg-3m9j">OPEN</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">79454-Jawai-VPNTUNNEL-M2MROUTER</td>
+                                          <td class="tg-f4yw">79454</td>
+                                          <td class="tg-nrix">79100</td>
+                                          <td class="tg-f4yw">90004</td>
+                                          <td class="tg-f4yw">10.90.16.167</td>
+                                          <td class="tg-baqh"> (for 0d 1h 11m 19s)</td>
+                                          <td class="tg-nrix">16/09/2022 9:43</td>
+                                          <td class="tg-f4yw">504667</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 9:43</td>
+                                          <td class="tg-f4yw">19/09/2022 18:05</td>
+                                          <td class="tg-f4yw">80:22:00</td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">sudah dilakukan&nbsp;&nbsp;&nbsp;refresh pada nomor m2m.</td>
+                                          <td class="tg-cly1">Nama Pic: Hanafi&nbsp;&nbsp;&nbsp;No.hp/wa: +62 812-5685-2984</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">40225A-Bandungmargahayu-VPNTUNNEL-M2MROUTER</td>
+                                          <td class="tg-f4yw">40225A</td>
+                                          <td class="tg-nrix">40000</td>
+                                          <td class="tg-nrix">40004</td>
+                                          <td class="tg-f4yw">10.90.13.24</td>
+                                          <td class="tg-baqh"> (for 0d 0h 26m 9s)</td>
+                                          <td class="tg-nrix">16/09/2022 9:43</td>
+                                          <td class="tg-f4yw">977654</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 9:43</td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal&nbsp;&nbsp;&nbsp;M2M,Indikasi pada simcard M2M, mohon dapat dibantu titik kordinat untuk&nbsp;&nbsp;&nbsp;lokasi KPC Bandungmargahayu untuk kami teruskan ke tim Telkomsel.</td>
+                                          <td class="tg-cly1">pic ading&nbsp;&nbsp;&nbsp;082130491215</td>
+                                          <td class="tg-3m9j">OPEN</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">57700-KARANGANYAR-LINTASARTA</td>
+                                          <td class="tg-f4yw">57700</td>
+                                          <td class="tg-nrix">57700</td>
+                                          <td class="tg-nrix">50004</td>
+                                          <td class="tg-f4yw">123.231.183.118</td>
+                                          <td class="tg-baqh"> (for 6d 19h 29m 34s)</td>
+                                          <td class="tg-nrix">16/09/2022 9:43</td>
+                                          <td class="tg-f4yw">771689</td>
+                                          <td class="tg-cly1">:2022-000349979</td>
+                                          <td class="tg-nrix">16/09/2022 9:43</td>
+                                          <td class="tg-nrix">18/09/2022 17:23</td>
+                                          <td class="tg-f4yw">55:40:00</td>
+                                          <td class="tg-7yig"> LINTASARTA </td>
+                                          <td class="tg-cly1">Jaringan Sudah&nbsp;&nbsp;&nbsp;Kembali UP</td>
+                                          <td class="tg-cly1">Ahmad Sholahuddin&nbsp;&nbsp;&nbsp;085712204685 </td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">53263-Kedungreja-VPNTUNNEL-M2M</td>
+                                          <td class="tg-f4yw">53263</td>
+                                          <td class="tg-nrix">53200</td>
+                                          <td class="tg-nrix">50004</td>
+                                          <td class="tg-f4yw">10.90.5.183</td>
+                                          <td class="tg-nrix">(for 0d 20h 39m 55s)</td>
+                                          <td class="tg-nrix">16/09/2022 9:59</td>
+                                          <td class="tg-f4yw">609139</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 9:59</td>
+                                          <td class="tg-nrix"> </td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal M2M</td>
+                                          <td class="tg-cly1">PIC : Kurniawan HP :&nbsp;&nbsp;&nbsp;085291135152</td>
+                                          <td class="tg-3m9j">OPEN</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">53221A-Cilacaptengah-VPNTUNNEL-M2M</td>
+                                          <td class="tg-f4yw">53221A</td>
+                                          <td class="tg-nrix">53200</td>
+                                          <td class="tg-nrix">50004</td>
+                                          <td class="tg-f4yw">10.90.5.176</td>
+                                          <td class="tg-baqh"> (for 0d 0h 49m 42s)</td>
+                                          <td class="tg-nrix">16/09/2022 10:00</td>
+                                          <td class="tg-f4yw">102287</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 10:00</td>
+                                          <td class="tg-nrix"> </td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal M2M</td>
+                                          <td class="tg-cly1">PIC : wiwit Priyanti&nbsp;&nbsp;&nbsp;Hp : 081578758239</td>
+                                          <td class="tg-3m9j">OPEN</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">91100-PAREPARE-ASTINET</td>
+                                          <td class="tg-f4yw">91100</td>
+                                          <td class="tg-nrix">91100</td>
+                                          <td class="tg-nrix">90004</td>
+                                          <td class="tg-f4yw">36.94.253.149</td>
+                                          <td class="tg-nrix">(for 0d 1h 10m 8s)</td>
+                                          <td class="tg-nrix">16/09/2022 10:15</td>
+                                          <td class="tg-f4yw">319184</td>
+                                          <td class="tg-cly1">IN144158371</td>
+                                          <td class="tg-nrix">16/09/2022 10:15</td>
+                                          <td class="tg-nrix">16/09/2022 11:58</td>
+                                          <td class="tg-f4yw">1:43:00</td>
+                                          <td class="tg-7yig"> ASTINET </td>
+                                          <td class="tg-cly1">perbaikan ganti kabel&nbsp;&nbsp;&nbsp;Dropcore</td>
+                                          <td class="tg-cly1">SUDARMANTO &nbsp;&nbsp;&nbsp;085163541223</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">44194B1-Kersamanah-VPNTUNNEL-M2M</td>
+                                          <td class="tg-f4yw">44194B1</td>
+                                          <td class="tg-nrix">44100</td>
+                                          <td class="tg-nrix">40004</td>
+                                          <td class="tg-f4yw">10.90.1.246</td>
+                                          <td class="tg-baqh"> (for 90d 18h 52m 52s)</td>
+                                          <td class="tg-nrix">16/09/2022 10:18</td>
+                                          <td class="tg-f4yw">505666</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 10:18</td>
+                                          <td class="tg-nrix"> </td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal M2M</td>
+                                          <td class="tg-cly1">Ari Garut +62&nbsp;&nbsp;&nbsp;856-9777-8574</td>
+                                          <td class="tg-3m9j">OPEN</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">60188A1-Surabayasukomanunggal-VPNTUNNEL-M2M</td>
+                                          <td class="tg-f4yw">60188A1</td>
+                                          <td class="tg-nrix">60000</td>
+                                          <td class="tg-nrix">60004</td>
+                                          <td class="tg-f4yw">10.90.2.43</td>
+                                          <td class="tg-baqh"> (for 0d 0h 10m 2s)</td>
+                                          <td class="tg-nrix">16/09/2022 10:19</td>
+                                          <td class="tg-f4yw">709386</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 10:19</td>
+                                          <td class="tg-nrix"> </td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal M2M</td>
+                                          <td class="tg-cly1">PIC : 0812 3571 5554&nbsp;&nbsp;&nbsp;a/n Dwi </td>
+                                          <td class="tg-3m9j">OPEN</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-zr06">34595B1-Rawajitu-VPNTUNNEL-M2M</td>
+                                          <td class="tg-f4yw">34595B1</td>
+                                          <td class="tg-nrix">34500</td>
+                                          <td class="tg-nrix">20004</td>
+                                          <td class="tg-f4yw">10.90.1.160</td>
+                                          <td class="tg-baqh"> (for 0d 2h 48m 39s)</td>
+                                          <td class="tg-nrix">16/09/2022 11:11</td>
+                                          <td class="tg-f4yw">759442</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 11:11</td>
+                                          <td class="tg-nrix"> </td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal M2M</td>
+                                          <td class="tg-cly1">pic : Khairudin&nbsp;&nbsp;&nbsp;082310398889</td>
+                                          <td class="tg-3m9j">OPEN</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">70000-BANJARMASIN-ASTINET</td>
+                                          <td class="tg-nrix">70000</td>
+                                          <td class="tg-nrix">70000</td>
+                                          <td class="tg-nrix">90004</td>
+                                          <td class="tg-f4yw">36.94.228.241</td>
+                                          <td class="tg-baqh"> (for 0d 0h 17m 43s)</td>
+                                          <td class="tg-nrix">16/09/2022 11:26</td>
+                                          <td class="tg-f4yw">660142</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 11:26</td>
+                                          <td class="tg-nrix">16/09/2022 12:01</td>
+                                          <td class="tg-f4yw">0:35:00</td>
+                                          <td class="tg-7yig"> ASTINET </td>
+                                          <td class="tg-cly1">Hasil cek : Sudah&nbsp;&nbsp;&nbsp;dipindahkan kabel LAN di Modem ke Lan 2</td>
+                                          <td class="tg-cly1">faturahman&nbsp;&nbsp;&nbsp;081251196814</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">70000-BANJARMASIN-LINTASARTA</td>
+                                          <td class="tg-nrix">70000</td>
+                                          <td class="tg-nrix">70000</td>
+                                          <td class="tg-nrix">90004</td>
+                                          <td class="tg-nrix">123.231.177.134</td>
+                                          <td class="tg-nrix">(for 4d 18h 18m 41s)</td>
+                                          <td class="tg-nrix">16/09/2022 11:30</td>
+                                          <td class="tg-f4yw">660142</td>
+                                          <td class="tg-cly1">2022-000349225</td>
+                                          <td class="tg-nrix">16/09/2022 11:30</td>
+                                          <td class="tg-nrix">16/09/2022 14:40</td>
+                                          <td class="tg-f4yw">3:10:00</td>
+                                          <td class="tg-7yig"> LINTASARTA </td>
+                                          <td class="tg-cly1">Jaringan Sudah&nbsp;&nbsp;&nbsp;Kembali UP</td>
+                                          <td class="tg-cly1">faturahman&nbsp;&nbsp;&nbsp;081251196814</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">57462-Bayat-VPNTUNNEL-M2M</td>
+                                          <td class="tg-nrix">57462</td>
+                                          <td class="tg-nrix">57400</td>
+                                          <td class="tg-nrix">50004</td>
+                                          <td class="tg-nrix">10.90.6.88</td>
+                                          <td class="tg-nrix">(for 0d 0h 5m 15s)</td>
+                                          <td class="tg-nrix">16/09/2022 12:49</td>
+                                          <td class="tg-f4yw">335794</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 12:49</td>
+                                          <td class="tg-nrix">26/09/2022 10:46</td>
+                                          <td class="tg-f4yw">237:57:00</td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal M2M</td>
+                                          <td class="tg-cly1">PIC: 081227501150&nbsp;&nbsp;&nbsp;SUTARNO</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">57461-Wedi-VPNTUNNEL-M2M</td>
+                                          <td class="tg-nrix">57461</td>
+                                          <td class="tg-nrix">57400</td>
+                                          <td class="tg-nrix">50004</td>
+                                          <td class="tg-nrix">10.90.6.87</td>
+                                          <td class="tg-nrix">(for 0d 0h 6m 57s)</td>
+                                          <td class="tg-nrix">16/09/2022 12:49</td>
+                                          <td class="tg-f4yw">148084</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 12:49</td>
+                                          <td class="tg-nrix">26/09/2022 10:49</td>
+                                          <td class="tg-f4yw">238:00:00</td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal M2M</td>
+                                          <td class="tg-cly1">PIC : 085643312110</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">54391-Buluspesantren-VPNTUNNEL-M2M</td>
+                                          <td class="tg-nrix">54391</td>
+                                          <td class="tg-nrix">54300</td>
+                                          <td class="tg-nrix">50004</td>
+                                          <td class="tg-nrix">10.90.5.234</td>
+                                          <td class="tg-baqh"> (for 0d 0h 14m 47s)</td>
+                                          <td class="tg-nrix">16/09/2022 14:04</td>
+                                          <td class="tg-f4yw">101629</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 14:04</td>
+                                          <td class="tg-nrix">26/09/2022 10:51</td>
+                                          <td class="tg-f4yw">236:47:00</td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal M2M</td>
+                                          <td class="tg-cly1">PIC= Mi.isnadi HP=&nbsp;&nbsp;&nbsp;082325491782 </td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">28911-Bagansiapiapi-VPNTUNNEL-M2MROUTER</td>
+                                          <td class="tg-nrix">28911</td>
+                                          <td class="tg-nrix">28800</td>
+                                          <td class="tg-nrix">20004</td>
+                                          <td class="tg-nrix">10.90.3.50</td>
+                                          <td class="tg-baqh"> (for 0d 6h 40m 36s)</td>
+                                          <td class="tg-nrix">16/09/2022 14:08</td>
+                                          <td class="tg-f4yw">782047</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 14:08</td>
+                                          <td class="tg-nrix">26/09/2022 10:53</td>
+                                          <td class="tg-f4yw">236:45:00</td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal&nbsp;&nbsp;&nbsp;M2M,penggantian kartu baru, akan Kami follow UP terkait penggantian kartunya.</td>
+                                          <td class="tg-cly1">pic : SANDRA DHARMA&nbsp;&nbsp;&nbsp;no hp PIC : 081268388886</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">16760-Tapos-VPNTUNNEL-M2M</td>
+                                          <td class="tg-nrix">16760</td>
+                                          <td class="tg-nrix">16000</td>
+                                          <td class="tg-nrix">40004</td>
+                                          <td class="tg-nrix">10.90.4.248</td>
+                                          <td class="tg-nrix">(for 205d 17h 0m 31s)</td>
+                                          <td class="tg-nrix">16/09/2022 14:10</td>
+                                          <td class="tg-f4yw">290839</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 14:10</td>
+                                          <td class="tg-nrix"> </td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal M2M</td>
+                                          <td class="tg-cly1">PIC : Reinaldi hp :&nbsp;&nbsp;&nbsp;085780112666</td>
+                                          <td class="tg-3m9j">OPEN</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">77511B1-Malinau-ASTINET</td>
+                                          <td class="tg-nrix">77511B1</td>
+                                          <td class="tg-nrix">77000</td>
+                                          <td class="tg-nrix">90004</td>
+                                          <td class="tg-nrix">36.95.22.59</td>
+                                          <td class="tg-nrix">(for 0d 0h 51m 36s)</td>
+                                          <td class="tg-nrix">16/09/2022 14:17</td>
+                                          <td class="tg-f4yw">922110</td>
+                                          <td class="tg-cly1">IN144185619</td>
+                                          <td class="tg-nrix">16/09/2022 14:17</td>
+                                          <td class="tg-nrix">16/09/2022 17:30</td>
+                                          <td class="tg-f4yw">3:13:00</td>
+                                          <td class="tg-7yig"> ASTINET </td>
+                                          <td class="tg-cly1">Sudah dilakukan&nbsp;&nbsp;&nbsp;perbaikan ODC</td>
+                                          <td class="tg-cly1">Muhammad Setya&nbsp;&nbsp;&nbsp;Perdana 082351513336,PIC dilokasi Rifat : 081221881130 </td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">22700-PADANGSIDEMPUAN-ASTINET</td>
+                                          <td class="tg-nrix">22700</td>
+                                          <td class="tg-nrix">22700</td>
+                                          <td class="tg-nrix">20004</td>
+                                          <td class="tg-nrix">36.94.244.187</td>
+                                          <td class="tg-nrix">(for 0d 1h 32m 28s)</td>
+                                          <td class="tg-nrix">16/09/2022 14:22</td>
+                                          <td class="tg-f4yw">378592</td>
+                                          <td class="tg-cly1">IN144186053</td>
+                                          <td class="tg-nrix">16/09/2022 14:22</td>
+                                          <td class="tg-nrix">16/09/2022 16:19</td>
+                                          <td class="tg-f4yw">1:57:00</td>
+                                          <td class="tg-baqh"> ASTINET </td>
+                                          <td class="tg-cly1">Info teknisi saat ini&nbsp;&nbsp;&nbsp;sudah dilakukan perbaikan pindah port modem</td>
+                                          <td class="tg-cly1">JALALUDDIN No HP :&nbsp;&nbsp;&nbsp;08126314343 </td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">22700-PADANGSIDEMPUAN-LINTASARTA</td>
+                                          <td class="tg-nrix">22700</td>
+                                          <td class="tg-nrix">22700</td>
+                                          <td class="tg-nrix">20004</td>
+                                          <td class="tg-nrix">123.231.190.102</td>
+                                          <td class="tg-nrix">(for 0d 1h 22m 3s)</td>
+                                          <td class="tg-nrix">16/09/2022 14:22</td>
+                                          <td class="tg-f4yw">378592</td>
+                                          <td class="tg-cly1">2022-000349329</td>
+                                          <td class="tg-nrix">16/09/2022 14:22</td>
+                                          <td class="tg-nrix">18/09/2022 10:11</td>
+                                          <td class="tg-f4yw">43:49:00</td>
+                                          <td class="tg-baqh"> LINTASARTA </td>
+                                          <td class="tg-cly1">Jaringan Sudah&nbsp;&nbsp;&nbsp;Kembali UP</td>
+                                          <td class="tg-cly1">JALALUDDIN No HP :&nbsp;&nbsp;&nbsp;08126314343 </td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">32173-Pulauberingin-VPNTUNNEL-VSATM2M</td>
+                                          <td class="tg-nrix">32173</td>
+                                          <td class="tg-nrix">32100</td>
+                                          <td class="tg-nrix">20004</td>
+                                          <td class="tg-nrix">10.90.10.54</td>
+                                          <td class="tg-nrix">(for 0d 0h 36m 35s)</td>
+                                          <td class="tg-nrix">16/09/2022 15:42</td>
+                                          <td class="tg-f4yw">686720</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 15:42</td>
+                                          <td class="tg-nrix">16/09/2022 16:51</td>
+                                          <td class="tg-f4yw">1:09:00</td>
+                                          <td class="tg-baqh"> Manggoesky </td>
+                                          <td class="tg-cly1">test bypass modem&nbsp;&nbsp;&nbsp;&amp; lihat kembali setingan Router</td>
+                                          <td class="tg-cly1">PIC : ISMED KOTAK :&nbsp;&nbsp;&nbsp;081368319957</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">27371-Alahanpanjang-VPNTUNNEL-VSATM2M</td>
+                                          <td class="tg-nrix">27371</td>
+                                          <td class="tg-nrix">27300</td>
+                                          <td class="tg-nrix">20004</td>
+                                          <td class="tg-nrix">10.90.10.49</td>
+                                          <td class="tg-baqh"> (for 0d 0h 3m 41s)</td>
+                                          <td class="tg-nrix">16/09/2022 16:39</td>
+                                          <td class="tg-f4yw">729554</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">16/09/2022 16:39</td>
+                                          <td class="tg-nrix">16/09/2022 16:54</td>
+                                          <td class="tg-f4yw">0:15:00</td>
+                                          <td class="tg-baqh"> Manggoesky </td>
+                                          <td class="tg-cly1">Link up kembali after&nbsp;&nbsp;&nbsp;Lock - Unlock Modem</td>
+                                          <td class="tg-cly1">CP : Kkcp, Akhirman&nbsp;&nbsp;&nbsp;HP : 085263615755</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">69356-Pasean-VPNTUNNEL-M2M</td>
+                                          <td class="tg-nrix">69356</td>
+                                          <td class="tg-nrix">69300</td>
+                                          <td class="tg-nrix">60004</td>
+                                          <td class="tg-nrix">10.90.7.154</td>
+                                          <td class="tg-nrix">(for 12d 21h 40m 10s)</td>
+                                          <td class="tg-nrix">18/09/2022 9:22</td>
+                                          <td class="tg-f4yw">686296</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">18/09/2022 9:22</td>
+                                          <td class="tg-nrix"> </td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal M2M</td>
+                                          <td class="tg-cly1">Pic Bpk Mahmud&nbsp;&nbsp;&nbsp;0853331122399</td>
+                                          <td class="tg-3m9j">OPEN</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">26382B1-Tigonagari-VPNTUNNEL-M2M</td>
+                                          <td class="tg-nrix">26382B1</td>
+                                          <td class="tg-nrix">26300</td>
+                                          <td class="tg-nrix">20004</td>
+                                          <td class="tg-nrix">10.90.1.114</td>
+                                          <td class="tg-baqh"> (for 4d 20h 26m 0s)</td>
+                                          <td class="tg-nrix">18/09/2022 9:31</td>
+                                          <td class="tg-f4yw">232851</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">18/09/2022 9:31</td>
+                                          <td class="tg-nrix"> </td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal M2M</td>
+                                          <td class="tg-cly1">Nama PIC Doni Satria&nbsp;&nbsp;&nbsp;- No Hp 085265423637</td>
+                                          <td class="tg-3m9j">OPEN</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">20151A-Medanpolonia-VPNTUNNEL-M2MROUTER</td>
+                                          <td class="tg-nrix">20151A</td>
+                                          <td class="tg-nrix">20000</td>
+                                          <td class="tg-nrix">20004</td>
+                                          <td class="tg-nrix">10.90.10.169</td>
+                                          <td class="tg-nrix">(for 3d 0h 36m 1s)</td>
+                                          <td class="tg-nrix">18/09/2022 9:45</td>
+                                          <td class="tg-f4yw">491597</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">18/09/2022 9:45</td>
+                                          <td class="tg-nrix">19/09/2022 17:57</td>
+                                          <td class="tg-f4yw">32:12:00</td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">sudah di lakukan&nbsp;&nbsp;&nbsp;refresh,</td>
+                                          <td class="tg-cly1">Nama Pic : Wahyu&nbsp;&nbsp;&nbsp;Ilham Nasution Hp PIC : 081262022223</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">55655-Panjatan-VPNTUNNEL-M2M</td>
+                                          <td class="tg-nrix">55655</td>
+                                          <td class="tg-nrix">55600</td>
+                                          <td class="tg-nrix">50004</td>
+                                          <td class="tg-nrix">10.90.5.252</td>
+                                          <td class="tg-baqh"> (for 0d 2h 50m 42s)</td>
+                                          <td class="tg-nrix">18/09/2022 10:15</td>
+                                          <td class="tg-f4yw">177112</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">18/09/2022 10:15</td>
+                                          <td class="tg-nrix">26/09/2022 10:40</td>
+                                          <td class="tg-f4yw">192:25:00</td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal M2M</td>
+                                          <td class="tg-cly1">Pic : Tri Mulyanto&nbsp;&nbsp;&nbsp;081215750282</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">43273B1-Agrabinta-VPNTUNNEL-M2M</td>
+                                          <td class="tg-nrix">43273B1</td>
+                                          <td class="tg-nrix">43200</td>
+                                          <td class="tg-nrix">40004</td>
+                                          <td class="tg-baqh"> 10.90.1.235</td>
+                                          <td class="tg-nrix">(for 0d 0h 9m 14s)</td>
+                                          <td class="tg-nrix">18/09/2022 11:58</td>
+                                          <td class="tg-f4yw">490691</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">18/09/2022 11:58</td>
+                                          <td class="tg-nrix">24/09/2022 16:49</td>
+                                          <td class="tg-f4yw">148:51:00</td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal M2M</td>
+                                          <td class="tg-cly1">Hendrik Kusdinar&nbsp;&nbsp;&nbsp;085321111907</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">51182-Karanganyarpekalongan-VPNTUNNEL-M2M</td>
+                                          <td class="tg-nrix">51182</td>
+                                          <td class="tg-nrix">51100</td>
+                                          <td class="tg-nrix">50004</td>
+                                          <td class="tg-nrix">10.90.5.121</td>
+                                          <td class="tg-nrix">(for 208d 12h 14m 2s)</td>
+                                          <td class="tg-nrix">19/09/2022 9:24</td>
+                                          <td class="tg-f4yw">675574</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">19/09/2022 9:24</td>
+                                          <td class="tg-nrix">19/09/2022 17:56</td>
+                                          <td class="tg-f4yw">8:32:00</td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">sudah dilakukan&nbsp;&nbsp;&nbsp;refresh pada nomor m2m.</td>
+                                          <td class="tg-cly1">Pic Kpc : Teguh&nbsp;&nbsp;&nbsp;Yulianto 0811-2605-745</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">94552-Dondo-VPNTUNNEL-M2M</td>
+                                          <td class="tg-nrix">94552</td>
+                                          <td class="tg-nrix">94000</td>
+                                          <td class="tg-nrix">90004</td>
+                                          <td class="tg-nrix">10.90.8.142</td>
+                                          <td class="tg-nrix">(for 0d 0h 39m 35s)</td>
+                                          <td class="tg-nrix">19/09/2022 9:34</td>
+                                          <td class="tg-f4yw">777244</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">19/09/2022 9:34</td>
+                                          <td class="tg-nrix">26/09/2022 10:37</td>
+                                          <td class="tg-f4yw">169:03:00</td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal M2M</td>
+                                          <td class="tg-cly1">Nama : AGUSTAN No hp&nbsp;&nbsp;&nbsp;: +62 852-1497-2286</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">92552-Tanete-VPNTUNNEL-M2MROUTER</td>
+                                          <td class="tg-nrix">92552</td>
+                                          <td class="tg-nrix">92500</td>
+                                          <td class="tg-nrix">90004</td>
+                                          <td class="tg-nrix">10.90.16.197</td>
+                                          <td class="tg-baqh"> (for 0d 2h 19m 22s)</td>
+                                          <td class="tg-nrix">19/09/2022 10:21</td>
+                                          <td class="tg-f4yw">772910</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">19/09/2022 10:21</td>
+                                          <td class="tg-nrix">19/09/2022 17:55</td>
+                                          <td class="tg-f4yw">7:34:00</td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">sudah dilakukan&nbsp;&nbsp;&nbsp;refresh pada nomor m2m.</td>
+                                          <td class="tg-cly1">an Abdul Rasyid&nbsp;&nbsp;&nbsp;085213474673 </td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">78852-Sukadanakalimantan-VPNTUNNEL-M2MROUTER</td>
+                                          <td class="tg-nrix">78852</td>
+                                          <td class="tg-nrix">78800</td>
+                                          <td class="tg-nrix">90004</td>
+                                          <td class="tg-nrix">10.90.16.153</td>
+                                          <td class="tg-baqh"> (for 0d 0h 15m 48s)</td>
+                                          <td class="tg-nrix">19/09/2022 10:42</td>
+                                          <td class="tg-f4yw">514317</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">19/09/2022 10:42</td>
+                                          <td class="tg-nrix">19/09/2022 17:53</td>
+                                          <td class="tg-f4yw">7:11:00</td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Jaringan Sudah&nbsp;&nbsp;&nbsp;Kembali UP</td>
+                                          <td class="tg-cly1">Pic hp 0812 2968 6691</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">59361-Kaliwungukudus-VPNTUNNEL-M2M</td>
+                                          <td class="tg-nrix">59361</td>
+                                          <td class="tg-nrix">59300</td>
+                                          <td class="tg-nrix">50004</td>
+                                          <td class="tg-nrix">10.90.6.168</td>
+                                          <td class="tg-baqh"> (for 0d 2h 39m 39s)</td>
+                                          <td class="tg-nrix">19/09/2022 10:50</td>
+                                          <td class="tg-f4yw">574919</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">19/09/2022 10:50</td>
+                                          <td class="tg-nrix"> </td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal M2M</td>
+                                          <td class="tg-cly1">galih setya</td>
+                                          <td class="tg-3m9j">OPEN</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">78852-Sukadanakalimantan-VPNTUNNEL-M2MROUTER</td>
+                                          <td class="tg-nrix">78852</td>
+                                          <td class="tg-nrix">78800</td>
+                                          <td class="tg-nrix">90004</td>
+                                          <td class="tg-nrix">10.90.16.153</td>
+                                          <td class="tg-baqh"> (for 0d 0h 37m 2s)</td>
+                                          <td class="tg-nrix">19/09/2022 11:05</td>
+                                          <td class="tg-f4yw">514317</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">19/09/2022 11:05</td>
+                                          <td class="tg-nrix">19/09/2022 17:52</td>
+                                          <td class="tg-f4yw">6:47:00</td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Jaringan Sudah&nbsp;&nbsp;&nbsp;Kembali UP</td>
+                                          <td class="tg-cly1">Pic hp 0812 2968 6691</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">93400-Unaaha-VPNTUNNEL-M2MROUTER</td>
+                                          <td class="tg-nrix">93400</td>
+                                          <td class="tg-nrix">93000</td>
+                                          <td class="tg-nrix">90004</td>
+                                          <td class="tg-nrix">10.90.16.207</td>
+                                          <td class="tg-nrix">(for 0d 0h 16m 11s)</td>
+                                          <td class="tg-nrix">19/09/2022 11:11</td>
+                                          <td class="tg-f4yw">179516</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">19/09/2022 11:11</td>
+                                          <td class="tg-nrix">19/09/2022 17:51</td>
+                                          <td class="tg-f4yw">6:40:00</td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">sudah dilakukan&nbsp;&nbsp;&nbsp;refresh pada nomor m2m.</td>
+                                          <td class="tg-cly1">PIC Aan no hp&nbsp;&nbsp;&nbsp;085256282711</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">93385-Tinanggea-VPNTUNNEL-M2MROUTER</td>
+                                          <td class="tg-nrix">93385</td>
+                                          <td class="tg-nrix">93000</td>
+                                          <td class="tg-nrix">90004</td>
+                                          <td class="tg-nrix">10.90.16.206</td>
+                                          <td class="tg-nrix">(for 0d 0h 11m 11s)</td>
+                                          <td class="tg-nrix">19/09/2022 11:11</td>
+                                          <td class="tg-f4yw">950800</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">19/09/2022 11:11</td>
+                                          <td class="tg-nrix">19/09/2022 17:49</td>
+                                          <td class="tg-f4yw">6:38:00</td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">refresh pada nomor&nbsp;&nbsp;&nbsp;m2m.</td>
+                                          <td class="tg-cly1">93385-Tinanggea-VPNTUNNEL-M2MROUTER</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">68200-BONDOWOSO-LINTASARTA</td>
+                                          <td class="tg-nrix">68200</td>
+                                          <td class="tg-nrix">68200</td>
+                                          <td class="tg-nrix">60004</td>
+                                          <td class="tg-nrix">123.231.175.242</td>
+                                          <td class="tg-baqh"> (for 5d 7h 50m 17s)</td>
+                                          <td class="tg-nrix">19/09/2022 14:28</td>
+                                          <td class="tg-f4yw">198986</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">19/09/2022 14:28</td>
+                                          <td class="tg-nrix"> </td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-baqh"> LINTASARTA </td>
+                                          <td class="tg-cly1">lintas arta down</td>
+                                          <td class="tg-cly1">082331021821&nbsp;&nbsp;&nbsp;fadil </td>
+                                          <td class="tg-3m9j">OPEN</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">73571-Pangkoh-VPNTUNNEL-M2M</td>
+                                          <td class="tg-nrix">73571</td>
+                                          <td class="tg-nrix">73000</td>
+                                          <td class="tg-nrix">90004</td>
+                                          <td class="tg-nrix">10.90.8.20</td>
+                                          <td class="tg-baqh"> (for 4d 5h 33m 48s)</td>
+                                          <td class="tg-nrix">19/09/2022 14:35</td>
+                                          <td class="tg-f4yw">308874</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">19/09/2022 14:35</td>
+                                          <td class="tg-nrix"> </td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-7yig"> SimCard M2M </td>
+                                          <td class="tg-cly1">Ganguan Masal M2M</td>
+                                          <td class="tg-cly1">PIC : 081254795419&nbsp;&nbsp;&nbsp;Eko</td>
+                                          <td class="tg-3m9j">OPEN</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">22400-TARUTUNG-ASTINET</td>
+                                          <td class="tg-nrix">22400</td>
+                                          <td class="tg-8d8j">22400</td>
+                                          <td class="tg-8d8j">20004</td>
+                                          <td class="tg-nrix">36.94.244.183</td>
+                                          <td class="tg-baqh"> (for 0d 0h 9m 59s)</td>
+                                          <td class="tg-nrix">19/09/2022 15:41</td>
+                                          <td class="tg-f4yw">602743</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">19/09/2022 15:41</td>
+                                          <td class="tg-nrix">19/09/2022 17:48</td>
+                                          <td class="tg-f4yw">2:07:00</td>
+                                          <td class="tg-baqh"> ASTINET </td>
+                                          <td class="tg-cly1">perbaikan : Revisi&nbsp;&nbsp;&nbsp;DropCore</td>
+                                          <td class="tg-cly1">Nomor PIC Lokasi :&nbsp;&nbsp;&nbsp;085376072898</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">45163-Panguragan-VPNTUNNEL-M2MROUTER</td>
+                                          <td class="tg-nrix">45163</td>
+                                          <td class="tg-nrix">45100</td>
+                                          <td class="tg-nrix">40004</td>
+                                          <td class="tg-nrix">10.90.13.138</td>
+                                          <td class="tg-nrix">(for 0d 23h 8m 20s)</td>
+                                          <td class="tg-nrix">20/09/2022 9:09</td>
+                                          <td class="tg-f4yw">564836</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">20/09/2022 9:09</td>
+                                          <td class="tg-nrix"> </td>
+                                          <td class="tg-f4yw"> </td>
+                                          <td class="tg-baqh"> Router Mikrotik </td>
+                                          <td class="tg-cly1">router indikasi&nbsp;&nbsp;&nbsp;bootloop</td>
+                                          <td class="tg-cly1">robbi raharjo&nbsp;&nbsp;&nbsp;082318288981,PIC Agus Salman HP 082318092768</td>
+                                          <td class="tg-3m9j">OPEN</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">93562-Pomalaa-VPNTUNNEL-M2MROUTER</td>
+                                          <td class="tg-nrix">93562</td>
+                                          <td class="tg-nrix">93000</td>
+                                          <td class="tg-nrix">90004</td>
+                                          <td class="tg-nrix">10.90.16.212</td>
+                                          <td class="tg-nrix">(for 0d 0h 1m 1s)</td>
+                                          <td class="tg-nrix">20/09/2022 10:06</td>
+                                          <td class="tg-f4yw">168044</td>
+                                          <td class="tg-cly1"> </td>
+                                          <td class="tg-nrix">20/09/2022 10:06</td>
+                                          <td class="tg-nrix"> </td>
+                                          <td class="tg-nrix"> </td>
+                                          <td class="tg-baqh"> SimCard M2M </td>
+                                          <td class="tg-cly1">M2M sedang tidak bisa&nbsp;&nbsp;&nbsp;digunakan / tidak stabil</td>
+                                          <td class="tg-cly1">PIC : Masri /&nbsp;&nbsp;&nbsp;085256579580</td>
+                                          <td class="tg-3m9j">OPEN</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="tg-cly1">84300-SUMBAWABESAR-ASTINET</td>
+                                          <td class="tg-nrix">84300</td>
+                                          <td class="tg-nrix">84300</td>
+                                          <td class="tg-8d8j">60004</td>
+                                          <td class="tg-nrix">36.94.240.71</td>
+                                          <td class="tg-baqh"> (for 0d 1h 8m 17s)</td>
+                                          <td class="tg-nrix">20/09/2022 12:54</td>
+                                          <td class="tg-f4yw">793323</td>
+                                          <td class="tg-cly1">IN144641708</td>
+                                          <td class="tg-nrix">20/09/2022 12:54</td>
+                                          <td class="tg-nrix">20/09/2022 16:05</td>
+                                          <td class="tg-f4yw">3:11:00</td>
+                                          <td class="tg-baqh"> ASTINET </td>
+                                          <td class="tg-cly1">perbaikan : Reconfig/&nbsp;&nbsp;&nbsp;Logic ke SN ALCLB19F3517</td>
+                                          <td class="tg-cly1">pic sofyan&nbsp;&nbsp;&nbsp;085234711722</td>
+                                          <td class="tg-uroo">CLOSED</td>
+                                        </tr>
+                                      </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <!-- Area Chart -->
+                        <div class="col-xl-8 col-lg-7">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Jumlah Gangguan Tiap Regional</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-bar">
+                                        <canvas id="myBarChart"></canvas>
+                                    </div>
+                                </div>
+                                
+                                <!-- <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                            aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">Dropdown Header:</div>
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+
+                        <!-- Pie Chart -->
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Persentase Jenis Gangguan</h6>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                            aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">Dropdown Header:</div>
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-pie pt-4 pb-2">
+                                        <canvas id="myPieChart"></canvas>
+                                    </div>
+                                    <div class="mt-4 small">
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle" style="color : #4e73df"></i> VPN
+                                        </span>
+                                        <br>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle" style="color : #1cc88a"></i> Gangguan Dedicated Internet
+                                        </span>
+                                        <br>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle" style="color : #FFA843"></i> Gangguan Mainly Astinet Lite
+                                        </span>
+                                        <br>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle" style="color : #FFF723"></i> Gangguan Router Mikrotik
+                                        </span>
+                                        <br>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle" style="color : #1E9CB5"></i> Gangguan M2M
+                                        </span>
+                                        <br>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle" style="color : #1E4BB5"></i> Gangguan Mainlink VSAT Mangoesky dan Backup Mangoesky
+                                        </span>
+                                        <br>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle" style="color : #1cc88a"></i> Gangguan Sinyal M2M
+                                        </span>
+                                        <br>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle" style="color : #36b9cc"></i> Lain-lain
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="container-fluid">
+                            <!-- Page Heading -->
+                            <h1 class="h3 mb-2 text-gray-800">List Gangguan</h1>
+        
+                            <!-- DataTales Example -->
+                            <div class="card shadow mb-4">
+                                <!-- <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">List of Data</h6>
+                                </div> -->
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered display" id="dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Gangguan</th>
+                                                    <th>Jumlah Host</th>
+                                                    <th>Jumlah Gangguan</th>
+                                                    <th>Persentase</th>
+                                                </tr>
+                                            </thead>
+                                            <!-- <tfoot>
+                                                <tr>
+                                                    <th>Gangguan</th>
+                                                    <th>Jumlah Host</th>
+                                                    <th>Jumlah Gangguan</th>
+                                                    <th>Persentase</th>
+                                                </tr>
+                                            </tfoot> -->
+                                            <tbody>
+                                                <tr>
+                                                    <td class="tg-yla0">Gangguan Dedicated Internet</td>
+                                                    <td class="tg-wa1i">159</td>
+                                                    <td class="tg-wa1i">1</td>
+                                                    <td class="tg-wa1i">0,63%</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="tg-yla0">Gangguan Mainly Astinet Lite</td>
+                                                    <td class="tg-wa1i">431</td>
+                                                    <td class="tg-wa1i">9</td>
+                                                    <td class="tg-wa1i">2,09%</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="tg-yla0">Gangguan Sinyal M2M</td>
+                                                    <td class="tg-wa1i">1905</td>
+                                                    <td class="tg-wa1i">15</td>
+                                                    <td class="tg-wa1i">0,79%</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="tg-yla0">Gangguan Router&nbsp;Mikrotik</td>
+                                                    <td class="tg-wa1i">1753</td>
+                                                    <td class="tg-wa1i">2</td>
+                                                    <td class="tg-wa1i">0,11%</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="tg-yla0">Gangguan Mainlink VSAT Mangoesky dan Backup Mangoesky</td>
+                                                    <td class="tg-wa1i">194</td>
+                                                    <td class="tg-wa1i">0</td>
+                                                    <td class="tg-wa1i">0,00%</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="tg-yla0">Lain-Lain</td>
+                                                    <td class="tg-wa1i">0</td>
+                                                    <td class="tg-wa1i">0</td>
+                                                    <td class="tg-wa1i">0,00%</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="tg-yla0">Simcard M2M</td>
+                                                    <td class="tg-wa1i">1905</td>
+                                                    <td class="tg-wa1i">2</td>
+                                                    <td class="tg-wa1i">0,10%</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="tg-yla0">VPN</td>
+                                                    <td class="tg-wa1i">3852</td>
+                                                    <td class="tg-wa1i">2</td>
+                                                    <td class="tg-wa1i">0,05%</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="tg-wa1i" colspan="2">Total</td>
+                                                    <td class="tg-bobw">31</td>
+                                                    <td class="tg-bobw">3,78%</td>
+                                                  </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+                <div class="container-fluid">
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Rekap Gangguan</h1>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <!-- <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">List of Data</h6>
+                        </div> -->
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered display" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Region</th>
+                                            <th>Jumlah Gangguan</th>
+                                            <th>Open</th>
+                                            <th>Close</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- <tfoot>
+                                        <tr>
+                                            <th>Gangguan</th>
+                                            <th>Jumlah Host</th>
+                                            <th>Jumlah Gangguan</th>
+                                            <th>Persentase</th>
+                                        </tr>
+                                    </tfoot> -->
+                                    <tbody>
+                                        <tr>
+                                            <td class="tg-wa1i">Regional&nbsp;1 </td>
+                                            <td class="tg-wa1i">6</td>
+                                            <td class="tg-wa1i">4</td>
+                                            <td class="tg-wa1i">2</td>
+                                          </tr>
+                                          <tr>
+                                            <td class="tg-wa1i">Regional&nbsp;2 </td>
+                                            <td class="tg-wa1i">2</td>
+                                            <td class="tg-wa1i">1</td>
+                                            <td class="tg-wa1i">1</td>
+                                          </tr>
+                                          <tr>
+                                            <td class="tg-wa1i">Regional&nbsp;3 </td>
+                                            <td class="tg-wa1i">1</td>
+                                            <td class="tg-wa1i">0</td>
+                                            <td class="tg-wa1i">1</td>
+                                          </tr>
+                                          <tr>
+                                            <td class="tg-wa1i">Regional&nbsp;4 </td>
+                                            <td class="tg-wa1i">2</td>
+                                            <td class="tg-wa1i">1</td>
+                                            <td class="tg-wa1i">1</td>
+                                          </tr>
+                                          <tr>
+                                            <td class="tg-wa1i">Regional&nbsp;5 </td>
+                                            <td class="tg-wa1i">14</td>
+                                            <td class="tg-wa1i">3</td>
+                                            <td class="tg-wa1i">11</td>
+                                          </tr>
+                                          <tr>
+                                            <td class="tg-wa1i">Regional&nbsp;6 </td>
+                                            <td class="tg-wa1i">6</td>
+                                            <td class="tg-wa1i">0</td>
+                                            <td class="tg-wa1i">6</td>
+                                          </tr>
+                                          <tr>
+                                            <td class="tg-wa1i"> Total</td>
+                                            <td class="tg-wa1i">31</td>
+                                            <td class="tg-wa1i">9</td>
+                                            <td class="tg-wa1i">22</td>
+                                          </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Sideting 2022</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="cpbootstrap/jquery/jquery.min.js"></script>
+    <script src="cpbootstrap/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="cpbootstrap/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="cpbootstrap/datatables/jquery.dataTables.min.js"></script>
+    <script src="cpbootstrap/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="cpbootstrap/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="js/demo/chart-bar-demo.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('table.display').DataTable();
+
+            $(".downloadExcel").click(function(){
+                location.href='data/Laporan_Tiket_Gangguan_Tanggal_05-09-2022_20-09-2022.xlsx';
+                swal({
+                        title: "Data berhasil di-download",
+                        icon: "success"
+                    });
+            });
+            $(".downloadPowerpoint").click(function(){
+                location.href='data/LAPORAN_TIKET.pptx';
+                swal({
+                        title: "Data berhasil di-download",
+                        icon: "success"
+                    });
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>

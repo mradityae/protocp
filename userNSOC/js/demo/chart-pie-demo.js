@@ -9,11 +9,11 @@ var myPieChart = new Chart(ctx, {
   data: {
     labels: [
       "VPN", 
-      "Gangguan Backup Lintas", 
-      "Gangguan ASTINET", 
+      "Gangguan Dedicated Internet", 
+      "Gangguan Mainly Astinet Lite", 
       "Gangguan Router Mikrotik", 
       "Gangguan M2M", 
-      "Gangguan Manggoesky", 
+      "Gangguan Mainlink VSAT Mangoesky dan Backup Mangoesky", 
       "Gangguan Sinyal M2M", 
       "Lain-lain"
     ],
