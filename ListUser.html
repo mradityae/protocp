@@ -342,7 +342,7 @@
                                             <td>24/09/2022</td>
                                             <td>-</td>
                                             <td>
-                                                <button type="button" class="btn btn-success editButton" data-target="#updateUserModal"><i class="fas fa-edit"></i></button>
+                                                <button type="button" class="btn btn-success editButton" data-target="#updateUserModal" data-toggle="modal"><i class="fas fa-edit"></i></button>
                                                 <button type="button" class="btn btn-danger deleteButton"><i class="fas fa-trash"></i></button>
                                             </td>
                                         </tr>
@@ -354,7 +354,7 @@
                                             <td>25/09/2022</td>
                                             <td>25/09/2022</td>
                                             <td>
-                                                <button type="button" class="btn btn-success editButton" data-target="#updateUserModal"><i class="fas fa-edit"></i></button>
+                                                <button type="button" class="btn btn-success editButton" data-target="#updateUserModal" data-toggle="modal"><i class="fas fa-edit"></i></button>
                                                 <button type="button" class="btn btn-danger deleteButton"><i class="fas fa-trash"></i></button>
                                             </td>
                                         </tr>
@@ -366,7 +366,7 @@
                                             <td>25/09/2022</td>
                                             <td>25/09/2022</td>
                                             <td>
-                                                <button type="button" class="btn btn-success editButton" data-target="#updateUserModal"><i class="fas fa-edit"></i></button>
+                                                <button type="button" class="btn btn-success editButton" data-target="#updateUserModal" data-toggle="modal"><i class="fas fa-edit"></i></button>
                                                 <button type="button" class="btn btn-danger deleteButton"><i class="fas fa-trash"></i></button>
                                             </td>
                                         </tr>
@@ -378,7 +378,7 @@
                                             <td>25/09/2022</td>
                                             <td>25/09/2022</td>
                                             <td>
-                                                <button type="button" class="btn btn-success editButton" data-target="#updateUserModal"><i class="fas fa-edit"></i></button>
+                                                <button type="button" class="btn btn-success editButton" data-target="#updateUserModal" data-toggle="modal"><i class="fas fa-edit"></i></button>
                                                 <button type="button" class="btn btn-danger deleteButton"><i class="fas fa-trash"></i></button>
                                             </td>
                                         </tr>
@@ -461,7 +461,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Password</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1">
+                        <input type="password" class="form-control" id="exampleFormControlInput1">
                     </div>
                     <div class="form-group">
                       <label for="exampleFormControlSelect1">Example select</label>
@@ -486,7 +486,7 @@
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="exampleupdateUserModalLabel">Create User</h5>
+            <h5 class="modal-title" id="exampleupdateUserModalLabel">Edit User</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -495,19 +495,19 @@
                 <form>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Full Name</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1">
+                        <input type="email" placeholder="User Fullname" class="form-control" id="exampleFormControlInput1">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Username</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1">
+                        <input type="email" placeholder="Username" class="form-control" id="exampleFormControlInput1">
                     </div>
                     <div class="form-group">
                       <label for="exampleFormControlInput1">Email address</label>
-                      <input type="email" class="form-control" id="exampleFormControlInput1">
+                      <input type="email" placeholder="User Email" class="form-control" id="exampleFormControlInput1">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Password</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1">
+                        <input type="password" placeholder="User Password" class="form-control" id="exampleFormControlInput1">
                     </div>
                     <div class="form-group">
                       <label for="exampleFormControlSelect1">Example select</label>
@@ -521,7 +521,7 @@
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary saveButton" data-dismiss="modal">Save changes</button>
+            <button type="button" class="btn btn-primary editModalButton" data-dismiss="modal">Save changes</button>
             </div>
         </div>
         </div>
@@ -550,6 +550,13 @@
             $(".saveButton").click(function(){
                 swal({
                         title: "Akun berhasil dibuat",
+                        icon: "success",
+                    })
+                });
+
+            $(".editModalButton").click(function(){
+                swal({
+                        title: "Akun berhasil diedit",
                         icon: "success",
                     })
                 });
